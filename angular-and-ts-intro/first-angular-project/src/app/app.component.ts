@@ -17,8 +17,9 @@ export class AppComponent {
   users2: boolean[] = [false, true];
   users3: string = "Ivan";
 
-  changeTitleHandler(newTitle: string): void {
-    this.title = newTitle;
+  changeTitleHandler(inputEl: HTMLInputElement): void {
+    this.title = inputEl.value;
+    inputEl.value = '';
   }
 
   toggleText(event: MouseEvent): void {
