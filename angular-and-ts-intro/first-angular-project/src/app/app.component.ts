@@ -28,5 +28,19 @@ export class AppComponent {
 
   }
 
+  //Lifecycle hooks
+
+  ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+
+  ngOnDestroy(): void {
+
+  }
+
   title = '3';
 }
