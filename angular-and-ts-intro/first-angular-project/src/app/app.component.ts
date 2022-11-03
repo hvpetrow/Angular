@@ -19,7 +19,8 @@ export class AppComponent {
   users3: string = "Ivan";
 
 
-  toggleText(): void {
+  toggleText(event: MouseEvent): void {
+    event.preventDefault();
     this.showText = !this.showText;
 
   }

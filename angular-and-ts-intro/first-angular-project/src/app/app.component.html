@@ -1,5 +1,5 @@
 <div *ngIf="showText">visible</div>
-<button (click)="toggleText()">
+<button (click)="toggleText($event)">
   {{ showText ? "Hide text" : "Show text" }}
 </button>
 {{ users2 }}
