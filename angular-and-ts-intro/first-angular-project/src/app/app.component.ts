@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from './interfaces/user';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,11 @@ export class AppComponent {
       name: 'Pesho',
       age: 28
     }
-  ]
+  ];
+
+  addNewUserHandler(newUser: IUser): void {
+    this.users.push(newUser);
+  }
 
   users2: boolean[] = [false, true];
   users3: string = "Ivan";

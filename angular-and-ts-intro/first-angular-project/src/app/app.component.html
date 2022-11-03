@@ -11,7 +11,10 @@
 <div>HEADER</div>
 
 <div id="content">
-  <app-user-list [usersArray]="users"> </app-user-list>
+  <app-user-list
+    [usersArray]="users"
+    (addUser)="addNewUserHandler($event)"
+  ></app-user-list>
 </div>
 
 <div>FOOTER</div>
