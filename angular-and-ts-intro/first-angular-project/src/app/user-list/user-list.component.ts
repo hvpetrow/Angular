@@ -16,7 +16,6 @@ export class UserListComponent implements OnInit {
   }
 
   addNewUser(userNameInput: HTMLInputElement, userAgeInput: HTMLInputElement): void {
-
     const { value: name } = userNameInput;
     const { valueAsNumber: age } = userAgeInput;
 
