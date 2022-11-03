@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = "first-angular-project";
   showText = true;
 
   users = {
@@ -18,6 +17,9 @@ export class AppComponent {
   users2: boolean[] = [false, true];
   users3: string = "Ivan";
 
+  changeTitleHandler(newTitle: string): void {
+    this.title = newTitle;
+  }
 
   toggleText(event: MouseEvent): void {
     event.preventDefault();
@@ -25,5 +27,5 @@ export class AppComponent {
 
   }
 
-
+  title = '3';
 }
