@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-article',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.articleDescLen = 0;
+    this.descToShow = "";
+  }
 
   ngOnInit(): void {
   }
 
+  private symbols: number = 250;
+  @Input() article: Article;
+  @Input() articleDesc: string;
+  descToShow: string;
+  articleDescLen: number;
+  showReadMoreBtn: boolean = true;
+  showHideBtn: boolean = false;
+  imageIsShown: boolean = false;
+  imageButtonTitle: string = "Show Image";
 }
