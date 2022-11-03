@@ -9,10 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   showText = true;
 
-  users = {
-    gosgho: 1,
-    penco: 2
-  }
+  users = [
+    {
+      name: 'Gosho',
+      age: 2
+    },
+    {
+      name: 'Pesho',
+      age: 28
+    }
+  ]
 
   users2: boolean[] = [false, true];
   users3: string = "Ivan";

@@ -1,4 +1,4 @@
-{{ title }}
+<!-- {{ title }}
 <div *ngIf="showText">visible</div>
 <input #inputElement type="text" />
 <button (click)="toggleText($event)">
@@ -6,4 +6,12 @@
 </button>
 <button (click)="changeTitleHandler(inputElement)">change title ...</button>
 {{ users2 }}
-{{ users3 }}
+{{ users3 }} -->
+
+<div>HEADER</div>
+
+<div id="content">
+  <app-user-list [usersArray]="users"> </app-user-list>
+</div>
+
+<div>FOOTER</div>
