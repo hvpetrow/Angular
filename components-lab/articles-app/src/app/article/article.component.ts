@@ -25,4 +25,15 @@ export class ArticleComponent implements OnInit {
   showHideBtn: boolean = false;
   imageIsShown: boolean = false;
   imageButtonTitle: string = "Show Image";
+
+  readMore(): void {
+    this.articleDescLen += 250;
+    if (this.articleDescLen > this.articleDesc.length) {
+      this.showReadMoreBtn = false;
+      this.showHideBtn = true;
+
+    } else {
+      this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
+    }
+  }
 }
