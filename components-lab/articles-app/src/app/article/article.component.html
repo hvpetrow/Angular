@@ -6,3 +6,12 @@
   <div class="desc" *ngIf="articleDescLen > 0">{{ descToShow }}</div>
   <img *ngIf="imageIsShown" src="{{ article.imageUrl }}" alt="article image" />
 </li>
+
+<ul>
+  <app-article
+    *ngFor="let a of articles"
+    [article]="a"
+    [articleDesc]="a.description"
+  >
+  </app-article>
+</ul>

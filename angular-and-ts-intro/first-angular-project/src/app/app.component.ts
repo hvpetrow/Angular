@@ -8,6 +8,7 @@ import { IUser } from './interfaces/user';
 })
 
 export class AppComponent {
+  title = '3';
   showText = true;
 
   users = [
@@ -53,5 +54,4 @@ export class AppComponent {
 
   }
 
-  title = '3';
 }
