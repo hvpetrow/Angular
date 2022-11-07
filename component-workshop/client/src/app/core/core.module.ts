@@ -17,7 +17,8 @@ import { AsideComponent } from './aside/aside.component';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AsideComponent
   ]
 })
 export class CoreModule { }

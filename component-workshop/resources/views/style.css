@@ -1,7 +1,7 @@
-@import url('reset.css');
-@import url('layout.css');
-@import url('typography.css');
-@import url('responsive.css');
+@import url("reset.css");
+@import url("layout.css");
+@import url("typography.css");
+@import url("responsive.css");
 
 body {
     max-width: 1366px;
@@ -41,7 +41,12 @@ button:hover {
 
 header {
     background: rgb(0, 128, 182);
-    background: linear-gradient(0deg, rgba(0, 128, 182, 1) 0%, rgba(0, 128, 182, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 128, 182, 1) 0%,
+        rgba(0, 128, 182, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
 }
 
 header ul {
@@ -66,8 +71,8 @@ header ul span {
 
 header li {
     list-style: none;
-    margin: .35em;
-    padding: 0 .95em;
+    margin: 0.35em;
+    padding: 0 0.95em;
 }
 
 header a {
@@ -87,8 +92,8 @@ nav {
 }
 
 .logo-wrap {
-    font-family: 'Parisienne', cursive;
-    letter-spacing: .5em;
+    font-family: "Parisienne", cursive;
+    letter-spacing: 0.5em;
     margin: 0.5em 0;
 }
 
@@ -108,9 +113,9 @@ nav {
     border-radius: 5px;
 }
 
-.mini-navbar ul li+li {
+.mini-navbar ul li + li {
     border-left: 1px solid lightgrey;
-    padding-left: .5em;
+    padding-left: 0.5em;
 }
 
 /* main  */
@@ -130,7 +135,8 @@ main {
     font-weight: bold;
 }
 
-.theme-container h2, p {
+.theme-container h2,
+p {
     padding: 0.3em 0 0.2em;
     margin: 0;
 }
@@ -199,7 +205,7 @@ aside {
     padding: 0;
 }
 
-.aside>div {
+.aside > div {
     border: 1px solid #999;
     border-radius: 0.3em;
     padding: 0.3em 0.5em;
@@ -223,7 +229,7 @@ aside {
     padding-left: 0.5rem;
 }
 
-.aside-theme+.aside-theme {
+.aside-theme + .aside-theme {
     border-top: dashed 1px #999;
 }
 
@@ -240,7 +246,6 @@ aside {
 
 footer {
     background: rgb(0, 212, 255);
-    ;
     margin-top: 1em;
     position: absolute;
     bottom: 0;
