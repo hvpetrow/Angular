@@ -16,7 +16,7 @@ export class AppComponent {
 
   fetchPosts(): void {
     this.posts = undefined;
-    this.contentService.loadPosts().subscribe(posts => {
+    this.contentService.loadPosts(5).subscribe(posts => {
       console.log(posts);
       this.posts = posts;
     });
