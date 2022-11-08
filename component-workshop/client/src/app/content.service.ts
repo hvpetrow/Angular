@@ -9,7 +9,7 @@ export class ContentService {
 
   constructor(private http: HttpClient) { }
 
-  loadThemes() {
+  loadThemes(take?: number) {
     return this.http.get<ITheme[]>('http://localhost:3000/api/themes');
   }
 

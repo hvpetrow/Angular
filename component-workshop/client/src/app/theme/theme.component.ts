@@ -17,7 +17,11 @@ export class ThemeComponent {
 
   fetchThemes(): void {
     this.themes = undefined;
-    this.contentService.loadThemes().subscribe(themes => this.themes = themes);
+    this.contentService.loadThemes().subscribe(themes => {
+      console.log(themes);
+
+      this.themes = themes
+    });
   }
 
 }
