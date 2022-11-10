@@ -18,9 +18,11 @@ export class UserDetailComponent implements OnInit {
     this.userService.loadUser(this.activatedRoute.snapshot.params['id']).subscribe(user => {
       this.user = user;
     });
-    // this.activatedRoute.params.subscribe(({ id }) => {
-    //   this.userService.loadUser(+id).subscribe;
-    // });
-  }
 
+    // this.activatedRoute.params.pipe(
+    // tap(() => this.user = undefined),
+    //   switchMap(({id}) => this.userService.loadUser(id))
+    // ).subscribe(user =>this.user=user); 
+
+  }
 }
