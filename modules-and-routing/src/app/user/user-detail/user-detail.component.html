@@ -1,4 +1,5 @@
-<div>
-  {{ user?.username }}
+<div *ngIf="user">
+  <div>{{ user.username }}</div>
 </div>
 <app-loader *ngIf="!user"></app-loader>
+<button type="button">Back to user-list</button>
