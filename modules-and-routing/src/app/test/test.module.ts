@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
 import { MainComponent } from './main/main.component';
+import { TestRoutingModule } from './test-routing.module';
 
 
 
@@ -13,7 +14,8 @@ import { MainComponent } from './main/main.component';
     MainComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TestRoutingModule
   ]
 })
 export class TestModule { }
