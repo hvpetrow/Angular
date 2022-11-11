@@ -14,18 +14,14 @@ export class UserService {
   constructor() { }
 
   login(email: string, password: string): void {
-    setTimeout(() => {
-      this.user = {
-        email,
-        firstName: 'John',
-        lastName: 'Doe'
-      }
-    }, 1000)
+    this.user = {
+      email,
+      firstName: 'John',
+      lastName: 'Doe'
+    }
   }
 
   logout(): void {
-    setTimeout(() => {
-      this.user = undefined;
-    }, 1000)
+    this.user = undefined;
   }
 }
