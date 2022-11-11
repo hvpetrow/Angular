@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
