@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let customer of customers">
-    {{ customer.name }}
+  <li *ngFor="let user of customers">
+    <app-customer-list-item [customer]="user"> </app-customer-list-item>
   </li>
 </ul>
