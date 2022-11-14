@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { LocalStorage } from '../core/injection-tokens';
 import { IUser } from '../shared/interfaces';
 
 @Injectable()
@@ -11,7 +12,7 @@ export class UserService {
     return !!this.user;
   }
 
-  constructor() { }
+  constructor(@Inject(LocalStorage) private localStorage: Window['localStorage']) { }
 
   login(email: string, password: string): void {
     this.user = {
