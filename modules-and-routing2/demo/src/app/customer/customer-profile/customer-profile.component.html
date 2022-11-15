@@ -1,5 +1,10 @@
-<p>Name: {{ customer.name }}</p>
+<div *ngIf="!!customer">
+  <p>Name: {{ customer.name }}</p>
 
-<p>Phone: {{ customer.name }}</p>
+  <p>Phone: {{ customer.phone }}</p>
 
-<p>Email:{{customer.email}}</p>
+  <p>Email: {{ customer.email }}</p>
+</div>
+<div *ngIf="!customer">
+  <p>Loading...</p>
+</div>
