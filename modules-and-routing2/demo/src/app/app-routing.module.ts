@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerProfileAlbumsComponent } from './customer/customer-profile-albums/customer-profile-albums.component';
+import { CustomerProfilePostsComponent } from './customer/customer-profile-posts/customer-profile-posts.component';
 import { CustomerProfileComponent } from './customer/customer-profile/customer-profile.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DefaultViewComponent } from './pages/default-view/default-view.component';
@@ -26,7 +28,16 @@ const routes: Routes = [
   },
   {
     path: 'user/:id',
-    component: CustomerProfileComponent
+    component: CustomerProfileComponent,
+    children: [
+      {
+        path: 'posts',
+        component: CustomerProfilePostsComponent
+      }, {
+        path: 'albums',
+        component: CustomerProfileAlbumsComponent
+      }
+    ]
   },
   {
     path: '**',

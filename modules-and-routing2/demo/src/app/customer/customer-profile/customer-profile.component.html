@@ -6,7 +6,8 @@
   <p>Email: {{ customer.email }}</p>
 
   <ul>
-    <li><a [routerLink]="['/user', customer.id]">Posts</a></li>
+    <li><a [routerLink]="['/user', customer.id, 'posts']">Posts</a></li>
+    <li><a [routerLink]="['/user', customer.id, 'albums']">Albums</a></li>
   </ul>
 </div>
 <div *ngIf="!customer">
