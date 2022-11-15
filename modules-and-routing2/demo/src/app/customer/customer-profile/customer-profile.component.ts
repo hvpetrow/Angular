@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CustomerService, IUser } from '../customer.service';
 
 @Component({
   selector: 'app-customer-profile',
@@ -7,14 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./customer-profile.component.css']
 })
 export class CustomerProfileComponent implements OnInit {
+  customer!: IUser;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
 
-    console.log(id);
+    this.customerService.getUserById$(id).subscribe(user => {
+      console.log(user);
 
+      this.customer = user;
+    })
   }
 
 }
