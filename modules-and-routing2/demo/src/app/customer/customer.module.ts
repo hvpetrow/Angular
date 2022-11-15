@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListItemComponent } from './customer-list-item/customer-list-item.component';
 import { RouterModule } from '@angular/router';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 
 
@@ -10,6 +11,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     CustomerListComponent,
     CustomerListItemComponent,
+    CustomerProfileComponent,
   ],
   imports: [
     CommonModule,
