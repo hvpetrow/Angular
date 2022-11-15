@@ -8,12 +8,14 @@ import { CoreModule } from './core/core.module';
 import { CustomerModule } from './customer/customer.module';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { DefaultViewComponent } from './pages/default-view/default-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    DefaultViewComponent
   ],
   imports: [
     BrowserModule,
