@@ -13,13 +13,25 @@ export class CustomerProfileComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    //subscribe for params changes in URL 
+    this.activatedRoute.params.subscribe(params => {
+      const id = this.activatedRoute.snapshot.params['id'];
 
-    this.customerService.getUserById$(id).subscribe(user => {
-      console.log(user);
-
-      this.customer = user;
+      this.customerService.getUserById$(id).subscribe({
+        next: user => {
+          this.customer = user;
+        },
+        error: error => {
+          console.error('error happened', error);
+        }
+      })
     })
-  }
 
+    // this.customerService.getUserById$(id).subscribe(user => {
+    //   console.log(user);
+
+    //   this.customer = user;
+    // })
+
+  }
 }
