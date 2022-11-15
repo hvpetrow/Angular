@@ -9,6 +9,8 @@
     <li><a [routerLink]="['/user', customer.id, 'posts']">Posts</a></li>
     <li><a [routerLink]="['/user', customer.id, 'albums']">Albums</a></li>
   </ul>
+
+  <router-outlet></router-outlet>>
 </div>
 <div *ngIf="!customer">
   <p>Loading...</p>
