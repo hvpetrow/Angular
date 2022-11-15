@@ -40,6 +40,7 @@ export class CustomerProfileComponent implements OnInit {
         }
       }
       )
+
     // this.activatedRoute.params.subscribe(params => {
     //   const id = params['id'];
 

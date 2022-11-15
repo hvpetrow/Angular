@@ -4,6 +4,7 @@ import { CustomerProfileComponent } from './customer/customer-profile/customer-p
 import { AboutComponent } from './pages/about/about.component';
 import { DefaultViewComponent } from './pages/default-view/default-view.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'user/:id',
     component: CustomerProfileComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
