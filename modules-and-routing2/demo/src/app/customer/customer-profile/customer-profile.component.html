@@ -4,6 +4,10 @@
   <p>Phone: {{ customer.phone }}</p>
 
   <p>Email: {{ customer.email }}</p>
+
+  <ul>
+    <li><a [routerLink]="['/user', customer.id]">Posts</a></li>
+  </ul>
 </div>
 <div *ngIf="!customer">
   <p>Loading...</p>
