@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../customer.service';
+import { ActivatedRoute } from '@angular/router';
+import { CustomerService, IPost } from '../customer.service';
 
 @Component({
   selector: 'app-customer-profile-posts',
@@ -8,9 +9,15 @@ import { CustomerService } from '../customer.service';
 })
 export class CustomerProfilePostsComponent implements OnInit {
 
-  constructor(private customerService: CustomerService) { }
+  posts: IPost[] = [];
+
+  constructor(private customerService: CustomerService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = this.activatedRoute.parent!.snapshot.params['id'];
+    this.customerService.getPostsByUserId$(id).subscribe(posts => {
+      this.posts = posts;
+    })
   }
 
 }
