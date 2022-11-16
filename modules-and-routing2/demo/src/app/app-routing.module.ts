@@ -28,6 +28,10 @@ const routes: Routes = [
   },
   {
     path: 'user/:id',
+    canActivate: [ProfileGuard],
+    // canActivateChild[ProfileGuard3], guard for children
+    //canDeactivate[], guard for lefting the page
+    //canLoad[] , guard for lazy Loading,
     component: CustomerProfileComponent,
     children: [
       {
