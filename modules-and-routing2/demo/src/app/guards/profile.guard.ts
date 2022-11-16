@@ -20,6 +20,7 @@ export class ProfileGuard implements CanActivate {
     }
 
     this.router.navigate(['/about']);
+    // return this.router.createUrlTree(['about']);
     return false;
   }
 
