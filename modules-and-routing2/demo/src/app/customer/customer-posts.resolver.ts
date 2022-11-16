@@ -5,12 +5,16 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { CustomerService, IPost } from './customer.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerPostsResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+
+export class CustomerPostsResolver implements Resolve<IPost[]> {
+  constructor(private customerService: CustomerService) { }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPost[]> {
+    return this.customerService.getPostsByUserId$(route.parent!.params['id']);
   }
 }
