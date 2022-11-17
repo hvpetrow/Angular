@@ -5,5 +5,9 @@
   directives-demo works!
 </p>
 
+<p *ngIf="shouldShowText">
+  <span> This text is conditional. </span>
+</p>
+
 <button (click)="shouldFontBeBig = true">Make text bigger!</button>
 <button (click)="shouldFontBeBig = false">Reset</button>

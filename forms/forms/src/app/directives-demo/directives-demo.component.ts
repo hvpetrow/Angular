@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivesDemoComponent implements OnInit {
   shouldFontBeBig: boolean = false;
+  shouldShowText: boolean = false;
 
   constructor() { }
 
