@@ -1,3 +1,4 @@
+<!-- attribute directives -->
 <p
   [ngStyle]="{ 'background-color': 'yellow', color: 'blue' }"
   [ngClass]="{ 'big-font': shouldFontBeBig }"
@@ -8,10 +9,21 @@
 <button (click)="shouldFontBeBig = true">Make text bigger!</button>
 <button (click)="shouldFontBeBig = false">Reset</button>
 
-<p *ngIf="shouldShowText">
+<!-- structure directives -->
+<p *ngIf="shouldShowText; else otherText">
   <span> This text is conditional. </span>
   <button (click)="shouldShowText = false">Hide</button>
 </p>
 <p *ngIf="!shouldShowText">
   <button (click)="shouldShowText = true">Show Text !</button>
 </p>
+
+<ng-template #otherText let-color="color">
+  <span> This is other false text {{ color }} </span>
+</ng-template>
+
+<ng-container
+  [ngTemplateOutlet]="otherText"
+  [ngTemplateOutletContext]="{ color: 'red' }"
+>
+</ng-container>
