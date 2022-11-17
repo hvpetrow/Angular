@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./directives-demo.component.css']
 })
 export class DirectivesDemoComponent implements OnInit {
-  shouldFontBeBig: boolean = true;
+  shouldFontBeBig: boolean = false;
 
   constructor() { }
 
