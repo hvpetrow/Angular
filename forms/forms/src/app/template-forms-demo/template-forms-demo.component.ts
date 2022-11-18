@@ -14,7 +14,7 @@ export class TemplateFormsDemoComponent implements OnInit, AfterViewInit {
   operatingSystems: string[] = [
     'Windows 10',
     'Linux',
-    'Mac'
+    'Mac OS'
   ]
 
   constructor() { }
