@@ -4,6 +4,7 @@
     <div class="form-group">
       <label for="processor">Proccessor</label>
       <input
+        #processor="ngModel"
         name="processor"
         ngModel
         type="text"
@@ -11,6 +12,10 @@
         id="processor"
         required
       />
+      <div
+        class="alert alert-danger"
+        *ngIf="processor.touched && processor.invalid"
+      ></div>
     </div>
     <div class="form-group">
       <label for="ram">RAM</label>
