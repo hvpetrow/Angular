@@ -55,12 +55,26 @@
     <div class="form-group">
       <label for="hardDisk">Hard Disk (GB)</label>
       <input
+        #hardDisk="ngModel"
         name="hardDisk"
         ngModel
         type="number"
         class="form-control"
         id="hardDisk"
+        required
+        minlength="3"
       />
+      <ng-container
+        *ngIf="hardDisk.touched && hardDisk.invalid"
+        class="aler alert-danger"
+      >
+        <div *ngIf="ram.errors?.['required']" class="alert alert-danger">
+          ram is required!
+        </div>
+        <div *ngIf="ram.errors?.['minlength']" class="alert alert-danger">
+          ram must be 2 characters long
+        </div>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="os">Operating System</label>
