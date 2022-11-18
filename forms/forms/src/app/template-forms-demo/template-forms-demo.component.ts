@@ -10,6 +10,7 @@ export class TemplateFormsDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild('laptopForm') laptopForm!: NgForm;
 
+
   operatingSystems: string[] = [
     'Windows 10',
     'Linux',

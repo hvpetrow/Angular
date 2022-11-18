@@ -31,13 +31,26 @@
     <div class="form-group">
       <label for="ram">RAM</label>
       <input
+        #ram="ngModel"
         name="ram"
         ngModel
         type="text"
         class="form-control"
         id="ram"
         required
+        minlength="3"
       />
+      <ng-container
+        *ngIf="ram.touched && ram.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="ram.errors?.['required']" class="alert alert-danger">
+          ram is required!
+        </div>
+        <div *ngIf="ram.errors?.['minlength']" class="alert alert-danger">
+          ram must be 2 characters long
+        </div>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="hardDisk">Hard Disk (GB)</label>
