@@ -57,6 +57,15 @@
         </option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="button" (click)="clearForm()" class="btn btn-link">
+      Clear
+    </button>
+    <button
+      [disabled]="laptopForm.invalid"
+      type="submit"
+      class="btn btn-success"
+    >
+      Submit
+    </button>
   </form>
 </div>

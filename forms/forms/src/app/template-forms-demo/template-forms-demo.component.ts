@@ -31,4 +31,14 @@ export class TemplateFormsDemoComponent implements OnInit, AfterViewInit {
 
   }
 
+  clearForm(): void {
+    this.laptopForm.form.patchValue({
+      'processor': '',
+      'hardDisk': 0,
+      'os': ''
+    });
+
+    this.laptopForm.form.markAsUntouched();
+  }
+
 }
