@@ -62,17 +62,17 @@
         class="form-control"
         id="hardDisk"
         required
-        minlength="3"
+        min="3"
       />
       <ng-container
         *ngIf="hardDisk.touched && hardDisk.invalid"
         class="aler alert-danger"
       >
-        <div *ngIf="ram.errors?.['required']" class="alert alert-danger">
-          ram is required!
+        <div *ngIf="!!hardDisk.errors?.['required']" class="alert alert-danger">
+          hardDisk is required!
         </div>
-        <div *ngIf="ram.errors?.['minlength']" class="alert alert-danger">
-          ram must be 2 characters long
+        <div *ngIf="!!hardDisk.errors?.['min']" class="alert alert-danger">
+          hardDisk must be min 3
         </div>
       </ng-container>
     </div>
