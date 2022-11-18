@@ -10,6 +10,25 @@
         required
         formControlName="processor"
       />
+      <ng-container
+        *ngIf="
+          laptopGroup.controls['processor'].touched &&
+          laptopGroup.controls['processor'].valid
+        "
+      >
+        <div
+          *ngIf="laptopGroup.controls['processor'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          Process is required!
+        </div>
+        <div
+          *ngIf="laptopGroup.controls['processor'].errors?.['minlength']"
+          class="alert alert-danger"
+        >
+          Process must be more than 5 characters long!
+        </div>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="ram">RAM</label>
