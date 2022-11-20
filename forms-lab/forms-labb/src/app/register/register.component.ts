@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +21,13 @@ export class RegisterComponent implements OnInit {
     'Original'
   ]
 
+  // registerForm = new FormGroup({
+  //   username: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{3,}$/)]),
+  //   email: new FormControl('', [Validators.required, Validators.pattern(/^[a-z]+@[a-z]+\.[a-z]+$/)]),
+  //   password: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{3,16}$/)]),
+  //   confirmPassword: new FormControl('', [Validators.required, this.isMatchPassword()])
+  // });
+
   constructor() { }
 
   ngOnInit(): void {
@@ -29,6 +36,15 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     console.log(this.registerForm.value);
     this.registerForm.reset();
+  }
+
+  isMatchPassword() {
+    return (c: FormControl) => {
+      if (!c.parent || c.value === c.parent.value.password) {
+        return null;
+      }
+      return { invalid: true };
+    }
   }
 
 }
