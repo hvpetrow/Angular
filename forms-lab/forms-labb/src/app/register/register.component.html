@@ -43,7 +43,9 @@
           ><span><i class="fas fa-phone"></i></span
         ></label>
         <select name="telPrefix" id="tel" class="tel" ngModel>
-          <option value="+359">+359</option>
+          <option *ngFor="let prefix of telPrefixes" [value]="prefix">
+            {{ prefix }}
+          </option>
         </select>
         <input
           type="text"
@@ -61,8 +63,7 @@
           ><span><i class="fas fa-building"></i></span
         ></label>
         <select name="building" id="building" class="building" ngModel>
-          <option value="Designer">Designer</option>
-          <option value="Tap">Tap</option>
+          <option *ngFor="let b of buildings" [value]="b">{{ b }}</option>
         </select>
       </p>
 

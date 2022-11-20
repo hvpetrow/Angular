@@ -9,6 +9,17 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   @ViewChild('registerForm') registerForm!: NgForm;
+  telPrefixes = [
+    '+359',
+    '+416',
+    '+859'
+  ];
+
+  buildings = [
+    'Designer',
+    'Dummy',
+    'Original'
+  ]
 
   constructor() { }
 
@@ -17,6 +28,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.registerForm.value);
+    this.registerForm.reset();
   }
 
 }
