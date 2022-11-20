@@ -35,16 +35,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.registerForm.value);
+
     this.registerForm.reset();
   }
 
-  isMatchPassword() {
-    return (c: FormControl) => {
-      if (!c.parent || c.value === c.parent.value.password) {
-        return null;
-      }
-      return { invalid: true };
-    }
+  isMatchPassword(): Boolean {
+    return this.registerForm.value.password === this.registerForm.value.repass;
   }
 
 }

@@ -50,11 +50,14 @@
           />
         </p>
 
-        <ng-container *ngIf="email.touched && email.invalid" class="error">
-          <div *ngIf="email.errors?.['required']" class="error">
+        <ng-container
+          *ngIf="email.touched && email.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="email.errors?.['required']" class="alert alert-danger">
             email is required!
           </div>
-          <div *ngIf="email.errors?.['pattern']" class="error">
+          <div *ngIf="email.errors?.['pattern']" class="alert alert-danger">
             email must be valid !
           </div>
         </ng-container>
@@ -113,19 +116,25 @@
 
         <ng-container
           *ngIf="password.touched && password.invalid"
-          class="error"
+          class="alert alert-danger"
         >
-          <div *ngIf="password.errors?.['required']" class="error">
+          <div *ngIf="password.errors?.['required']" class="alert alert-danger">
             password is required!
           </div>
-          <div *ngIf="password.errors?.['minlength']" class="error">
+          <div
+            *ngIf="password.errors?.['minlength']"
+            class="alert alert-danger"
+          >
             password must be min 2 characters long
           </div>
-          <div *ngIf="repass.errors?.['maxlength']" class="error">
+          <div *ngIf="repass.errors?.['maxlength']" class="alert alert-danger">
             password must be max 16 characters long
           </div>
-          <div *ngIf="repass.errors?.['pattern']" class="error">
+          <div *ngIf="repass.errors?.['pattern']" class="alert alert-danger">
             password must be only letters or numbers
+          </div>
+          <div *ngIf="isMatchPassword()" class="alert alert-danger">
+            password and repass must match
           </div>
         </ng-container>
       </div>
@@ -149,18 +158,24 @@
           />
         </p>
 
-        <ng-container *ngIf="repass.touched && repass.invalid" class="error">
-          <div *ngIf="repass.errors?.['required']" class="error">
+        <ng-container
+          *ngIf="repass.touched && repass.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="repass.errors?.['required']" class="alert alert-danger">
             repass is required!
           </div>
-          <div *ngIf="repass.errors?.['minlength']" class="error">
+          <div *ngIf="repass.errors?.['minlength']" class="alert alert-danger">
             repass must be more than 3 characters long
           </div>
-          <div *ngIf="repass.errors?.['maxlength']" class="error">
+          <div *ngIf="repass.errors?.['maxlength']" class="alert alert-danger">
             repass must be 16 characters long
           </div>
-          <div *ngIf="repass.errors?.['pattern']" class="error">
+          <div *ngIf="repass.errors?.['pattern']" class="alert alert-danger">
             repass must be only letters or numbers
+          </div>
+          <div *ngIf="isMatchPassword()" class="alert alert-danger">
+            password and repass must match
           </div>
         </ng-container>
       </div>
