@@ -21,12 +21,7 @@ export class RegisterComponent implements OnInit {
     'Original'
   ]
 
-  // registerForm = new FormGroup({
-  //   username: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{3,}$/)]),
-  //   email: new FormControl('', [Validators.required, Validators.pattern(/^[a-z]+@[a-z]+\.[a-z]+$/)]),
-  //   password: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{3,16}$/)]),
-  //   confirmPassword: new FormControl('', [Validators.required, this.isMatchPassword()])
-  // });
+
 
   constructor() { }
 
@@ -39,8 +34,13 @@ export class RegisterComponent implements OnInit {
     this.registerForm.reset();
   }
 
-  isMatchPassword(): Boolean {
-    return this.registerForm.value.password === this.registerForm.value.repass;
+  isMatchPassword() {
+    return (c: FormControl) => {
+      if (!c.parent || c.value === c.parent.value.password) {
+        return null;
+      }
+      return { invalid: true };
+    }
   }
 
 }
