@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="" method="post" ngForm>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
     <fieldset>
       <h1>Registration Form</h1>
 
@@ -8,11 +8,14 @@
           ><span><i class="fas fa-user"></i></span
         ></label>
         <input
+          #username="ngModel"
+          ngModel
           type="text"
           name="username"
           id="username"
           class="error"
           placeholder="Mark Ulrich"
+          required
         />
       </p>
 
@@ -25,10 +28,13 @@
           ><span><i class="fas fa-envelope"></i></span
         ></label>
         <input
+          #email="ngModel"
+          ngModel
           type="text"
           name="email"
           id="email"
           placeholder="marк@gmial.com"
+          required
         />
       </p>
 
@@ -36,18 +42,27 @@
         <label for="tel"
           ><span><i class="fas fa-phone"></i></span
         ></label>
-        <select name="tel" id="tel" class="tel">
-          <option value="1">+359</option>
+        <select name="telPrefix" id="tel" class="tel" ngModel>
+          <option value="+359">+359</option>
         </select>
-        <input type="text" name="tel" id="tel" placeholder="888 888" />
+        <input
+          type="text"
+          name="tel"
+          id="tel"
+          placeholder="888 888"
+          #mobilePhone
+          ngModel
+          required
+        />
       </p>
 
       <p class="field field-icon">
         <label for="building"
           ><span><i class="fas fa-building"></i></span
         ></label>
-        <select name="building" id="building" class="building">
-          <option value="1">Designer</option>
+        <select name="building" id="building" class="building" ngModel>
+          <option value="Designer">Designer</option>
+          <option value="Tap">Tap</option>
         </select>
       </p>
 
@@ -60,6 +75,9 @@
           name="password"
           id="password"
           placeholder="******"
+          ngModel
+          #password="ngModel"
+          required
         />
       </p>
 
@@ -68,15 +86,18 @@
           ><span><i class="fas fa-lock"></i></span
         ></label>
         <input
-          type="re-password"
+          type="password"
           name="re-password"
           id="re-password"
           placeholder="******"
+          ngModel
+          #repass="ngModel"
+          required
         />
       </p>
 
       <p>
-        <button>Create Account</button>
+        <button [disabled]="registerForm.invalid">Create Account</button>
       </p>
 
       <p class="text-center">
