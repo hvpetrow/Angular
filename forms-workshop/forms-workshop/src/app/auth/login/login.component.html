@@ -30,6 +30,15 @@
       "
     >
       <p class="error">Email is not valid!</p>
+      <p
+        class="error"
+        *ngIf="
+          !loginFormGroup.controls.email.errors.required &&
+          loginFormGroup.controls.email.errors.email
+        "
+      >
+        Email is not valid!
+      </p>
     </ng-container>
 
     <p class="field field-icon">
@@ -59,7 +68,7 @@
       </p>
     </ng-container>
 
-    <button (click)="loginHandler()">Login</button>
+    <button [disabled]="loginFormGroup.invalid">Login</button>
 
     <p class="text-center">
       Have an account?
