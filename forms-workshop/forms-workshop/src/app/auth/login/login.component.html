@@ -50,10 +50,14 @@
         loginFormGroup.controls.password.invalid
       "
     >
-      <p class="error">Password is required!</p>
+      {{ loginFormGroup.controls.password.errors | json }}
+      <p class="error" *ngIf="loginFormGroup.controls.errors.required">
+        Password is required!
+      </p>
+      <p class="error" *ngIf="loginFormGroup.controls.errors.minlength">
+        Password must be at least 5 characters!
+      </p>
     </ng-container>
-    <!-- <p class="error">Password must be at least 4 characters!</p>
-    -->
 
     <button (click)="loginHandler()">Login</button>
 
