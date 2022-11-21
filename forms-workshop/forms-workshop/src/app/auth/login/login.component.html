@@ -22,9 +22,15 @@
       />
     </p>
     <!-- <p class="error">Email is required!</p> -->
-    <!-- <p class="error">
-            Email is not valid!
-        </p> -->
+
+    <ng-container
+      *ngIf="
+        loginFormGroup.controls.email.touched &&
+        loginFormGroup.controls.email.invalid
+      "
+    >
+      <p class="error">Email is not valid!</p>
+    </ng-container>
 
     <p class="field field-icon">
       <label for="password"
@@ -38,12 +44,16 @@
         formControlName="password"
       />
     </p>
-    <!-- <p class="error">
-            Password is required!
-        </p>
-        <p class="error">
-            Password must be at least 4 characters!
-        </p> -->
+    <ng-container
+      *ngIf="
+        loginFormGroup.controls.password.touched &&
+        loginFormGroup.controls.password.invalid
+      "
+    >
+      <p class="error">Password is required!</p>
+    </ng-container>
+    <!-- <p class="error">Password must be at least 4 characters!</p>
+    -->
 
     <button (click)="loginHandler()">Login</button>
 
