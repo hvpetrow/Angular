@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { emailValidator } from '../util';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +10,23 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerFormGroup: FormGroup = this.formBuilder.group({
-    'username': new FormControl(''),
-    'email': new FormControl(),
+    'username': new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    'email': new FormControl(null, [Validators.required, emailValidator]),
     'passwords': new FormGroup({
-      'password': new FormControl(),
-      'repass': new FormControl()
+      'password': new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      'repass': new FormControl(null, Validators.required,)
     }),
-    tel: new FormControl()
+    'tel': new FormControl(null, [])
   });
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log(this.registerFormGroup.value);
+
   }
 
 }
