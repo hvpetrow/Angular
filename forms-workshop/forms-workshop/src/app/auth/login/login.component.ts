@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     console.log('form must be submitted');
+    console.log(this.loginFormGroup.value);
+
 
   }
 

@@ -29,7 +29,9 @@
         loginFormGroup.controls.email.invalid
       "
     >
-      <p class="error">Email is not valid!</p>
+      <p class="error" *ngIf="loginFormGroup.controls.email.errors.required">
+        Email is required!
+      </p>
       <p
         class="error"
         *ngIf="
@@ -60,10 +62,13 @@
       "
     >
       {{ loginFormGroup.controls.password.errors | json }}
-      <p class="error" *ngIf="loginFormGroup.controls.errors.required">
+      <p class="error" *ngIf="loginFormGroup.controls.password.errors.required">
         Password is required!
       </p>
-      <p class="error" *ngIf="loginFormGroup.controls.errors.minlength">
+      <p
+        class="error"
+        *ngIf="loginFormGroup.controls.password.errors.minlength"
+      >
         Password must be at least 5 characters!
       </p>
     </ng-container>
