@@ -16,8 +16,25 @@
         placeholder="Johny"
       />
     </p>
-    <p class="error">Username is required!</p>
-
+    <ng-container
+      *ngIf="
+        registerFormGroup.controls.username.touched &&
+        registerFormGroup.controls.username.invalid
+      "
+    >
+      <p
+        class="error"
+        *ngIf="registerFormGroup.controls.username.errors.required"
+      >
+        Username is required!
+      </p>
+      <p
+        class="error"
+        *ngIf="registerFormGroup.controls.username.errors.minlength"
+      >
+        Username must be at least 5 characters!
+      </p>
+    </ng-container>
     <!-- email -->
     <p class="field field-icon">
       <label for="email"
@@ -31,20 +48,33 @@
         placeholder="john.doe@gmail.com"
       />
     </p>
-    <!-- <p class="error">
-            Email is required!
-        </p>
-        <p class="error">
-            Email is not valid!
-        </p> -->
-
+    <ng-container
+      *ngIf="
+        registerFormGroup.controls.email.touched &&
+        registerFormGroup.controls.email.invalid
+      "
+    >
+      <p class="error" *ngIf="registerFormGroup.controls.email.errors.required">
+        Email is required!
+      </p>
+      <p class="error" *ngIf="registerFormGroup.controls.email.errors.email">
+        Email must be at leat 5 characters!
+      </p>
+    </ng-container>
     <!-- telephone -->
     <p class="field field-icon">
       <label for="tel"
         ><span><i class="fas fa-phone"></i></span
       ></label>
-      <select name="select-tel" id="select-tel" class="tel">
+      <select
+        name="telRegion"
+        id="telRegion"
+        class="tel"
+        formControlName="telRegion"
+      >
         <option value="00359">+359</option>
+        <option value="00359">+389</option>
+        <option value="00359">+589</option>
       </select>
       <input
         formControlName="tel"
@@ -67,12 +97,19 @@
           placeholder="******"
         />
       </p>
-      <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
+      <ng-container
+        *ngIf="
+          registerFormGroup.controls.password.touched &&
+          registerFormGroup.controls.password.invalid
+        "
+      >
+        <p *ngIf="registerFormGroup.controls.password.required" class="error">
+          Password is required!
+        </p>
+        <p *ngIf="registerFormGroup.controls.password.minlength" class="error">
+          Password must be at least 4 characters!
+        </p>
+      </ng-container>
 
       <!-- rePassword -->
       <p class="field field-icon">
@@ -87,6 +124,19 @@
           placeholder="******"
         />
       </p>
+      <ng-container
+        *ngIf="
+          registerFormGroup.controls.password.touched &&
+          registerFormGroup.controls.password.invalid
+        "
+      >
+        <p *ngIf="registerFormGroup.controls.password.required" class="error">
+          Repass is required!
+        </p>
+        <p *ngIf="registerFormGroup.controls.password.minlength" class="error">
+          Password must be at least 5 characters!
+        </p>
+      </ng-container>
       <!-- <p class="error">Repeat Password does not match password!</p> -->
     </div>
     <!-- password -->
