@@ -36,4 +36,8 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  shouldShowErrorForControl(controlName: string, sourceGroup: FormGroup = this.registerFormGroup) {
+    return sourceGroup.controls[controlName].touched && this.passwordsGroup.controls[controlName].invalid;
+  }
+
 }

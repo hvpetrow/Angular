@@ -16,12 +16,7 @@
         placeholder="Johny"
       />
     </p>
-    <ng-container
-      *ngIf="
-        registerFormGroup.controls.username.touched &&
-        registerFormGroup.controls.username.invalid
-      "
-    >
+    <ng-container *ngIf="shouldShowErrorForControl('username')">
       <p
         class="error"
         *ngIf="registerFormGroup.controls.username.errors.required"
@@ -48,12 +43,7 @@
         placeholder="john.doe@gmail.com"
       />
     </p>
-    <ng-container
-      *ngIf="
-        registerFormGroup.controls.email.touched &&
-        registerFormGroup.controls.email.invalid
-      "
-    >
+    <ng-container *ngIf="shouldShowErrorForControl('email')">
       <p class="error" *ngIf="registerFormGroup.controls.email.errors.required">
         Email is required!
       </p>
@@ -98,10 +88,7 @@
         />
       </p>
       <ng-container
-        *ngIf="
-          passwordsGroup.controls.password.touched &&
-          passwordsGroup.controls.password.invalid
-        "
+        *ngIf="shouldShowErrorForControl('password', passwordsGroup)"
       >
         <p *ngIf="passwordsGroup.controls.password.required" class="error">
           Password is required!
@@ -125,10 +112,7 @@
         />
       </p>
       <ng-container
-        *ngIf="
-          passwordsGroup.controls.password.touched &&
-          passwordsGroup.controls.password.invalid
-        "
+        *ngIf="shouldShowErrorForControl('rePassword', passwordsGroup)"
       >
         <p class="error">Password is required!</p>
       </ng-container>
