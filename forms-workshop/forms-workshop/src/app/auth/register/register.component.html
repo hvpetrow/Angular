@@ -99,14 +99,14 @@
       </p>
       <ng-container
         *ngIf="
-          registerFormGroup.controls.password.touched &&
-          registerFormGroup.controls.password.invalid
+          passwordsGroup.controls.password.touched &&
+          passwordsGroup.controls.password.invalid
         "
       >
-        <p *ngIf="registerFormGroup.controls.password.required" class="error">
+        <p *ngIf="passwordsGroup.controls.password.required" class="error">
           Password is required!
         </p>
-        <p *ngIf="registerFormGroup.controls.password.minlength" class="error">
+        <p *ngIf="passwordsGroup.controls.password.minlength" class="error">
           Password must be at least 4 characters!
         </p>
       </ng-container>
@@ -126,16 +126,11 @@
       </p>
       <ng-container
         *ngIf="
-          registerFormGroup.controls.password.touched &&
-          registerFormGroup.controls.password.invalid
+          passwordsGroup.controls.password.touched &&
+          passwordsGroup.controls.password.invalid
         "
       >
-        <p *ngIf="registerFormGroup.controls.password.required" class="error">
-          Repass is required!
-        </p>
-        <p *ngIf="registerFormGroup.controls.password.minlength" class="error">
-          Password must be at least 5 characters!
-        </p>
+        <p class="error">Password is required!</p>
       </ng-container>
       <!-- <p class="error">Repeat Password does not match password!</p> -->
     </div>

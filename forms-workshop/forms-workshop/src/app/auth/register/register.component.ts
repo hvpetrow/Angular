@@ -9,7 +9,11 @@ import { emailValidator, passwordMatch } from '../util';
 })
 export class RegisterComponent implements OnInit {
 
-  passwordControl = new FormControl(null, [Validators.required, Validators.minLength(4)])
+  passwordControl = new FormControl(null, [Validators.required, Validators.minLength(4)]);
+
+  get passwordsGroup(): FormGroup {
+    return this.registerFormGroup.controls.passwords as FormGroup;
+  }
 
   registerFormGroup: FormGroup = this.formBuilder.group({
     'username': new FormControl(null, [Validators.required, Validators.minLength(5)]),
