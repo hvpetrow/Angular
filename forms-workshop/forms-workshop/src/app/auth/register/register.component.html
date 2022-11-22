@@ -90,11 +90,17 @@
       <ng-container
         *ngIf="shouldShowErrorForControl('password', passwordsGroup)"
       >
-        <p *ngIf="passwordsGroup.controls.password.required" class="error">
+        <p
+          *ngIf="passwordsGroup.controls.password.errors.required"
+          class="error"
+        >
           Password is required!
         </p>
-        <p *ngIf="passwordsGroup.controls.password.minlength" class="error">
-          Password must be at least 4 characters!
+        <p
+          *ngIf="passwordsGroup.controls.password.errors.minlength"
+          class="error"
+        >
+          Password must be at least 5 characters!
         </p>
       </ng-container>
 
@@ -114,11 +120,20 @@
       <ng-container
         *ngIf="shouldShowErrorForControl('rePassword', passwordsGroup)"
       >
-        <p class="error">Password is required!</p>
+        <p
+          *ngIf="passwordsGroup.controls.rePassword.errors.required"
+          class="error"
+        >
+          rePassword is required!
+        </p>
+        <p
+          *ngIf="passwordsGroup.controls.rePassword.errors.passwordMatch"
+          class="error"
+        >
+          Repeat Password does not match password!
+        </p>
       </ng-container>
-      <!-- <p class="error">Repeat Password does not match password!</p> -->
     </div>
-    <!-- password -->
 
     <button [disabled]="registerFormGroup.invalid">Create Account</button>
 
