@@ -34,6 +34,21 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     console.log(this.registerFormGroup.value);
 
+    const { username, email, passwords, tel, telRegion } = this.registerFormGroup.value;
+
+    const body: { [key: string]: string } = {
+      username: username,
+      email: email,
+      password: passwords.password,
+      // ...(tel && { tel:telRegion + tel})
+    }
+
+    if (tel) {
+      body.tel = telRegion + tel;
+    }
+
+
+    console.log(body);
   }
 
   shouldShowErrorForControl(controlName: string, sourceGroup: FormGroup = this.registerFormGroup) {
