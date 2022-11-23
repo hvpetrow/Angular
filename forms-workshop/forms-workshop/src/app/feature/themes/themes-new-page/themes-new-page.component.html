@@ -2,28 +2,52 @@
   <div class="header-background">
     <span>New Theme</span>
   </div>
-  <form #newThemeForm="ngForm">
+  <form #newThemeForm="ngForm" (ngSubmit)="onSubmit(newThemeForm)">
     <div class="new-theme-title">
       <label for="themeName">Title <span class="red">*</span></label>
-      <input type="text" name="themeName" id="themeName" />
-      <p class="error">Theme name is required.</p>
-      <p class="error">Theme name must be at least 5 characters long.</p>
+      <input
+        #themeName="ngModel"
+        type="text"
+        name="themeName"
+        ngModel
+        id="themeName"
+        required
+        minlength="5"
+      />
+      <ng-container *ngIf="themeName.touched && themeName.invalid">
+        <p *ngIf="themeName.errors.required" class="error">
+          Theme name is required.
+        </p>
+        <p *ngIf="themeName.errors.minlength" class="error">
+          Theme name must be at least 5 characters long.
+        </p>
+      </ng-container>
     </div>
     <div class="new-theme-content">
       <label for="postText">Post <span class="red">*</span></label>
       <textarea
+        #postText="ngModel"
         type="text"
         name="postText"
+        ngModel
         id="postText"
         rows="8"
         class="height"
+        required
+        minlength="10"
       ></textarea>
-      <p class="error">The field with your post is required.</p>
-      <p class="error">Post must be at least 10 characters long.</p>
+      <ng-container *ngIf="postText.touched && postText.invalid">
+        <p *ngIf="postText.errors.required" class="error">
+          The field with your post is required.
+        </p>
+        <p *ngIf="postText.errors.minlength" class="error">
+          Post must be at least 10 characters long.
+        </p>
+      </ng-container>
     </div>
     <div class="new-theme-buttons">
-      <button class="cancel">Cancel</button>
-      <button class="public">Post</button>
+      <button (click)="navigateToHome()" class="cancel">Cancel</button>
+      <button [disabled]="newThemeForm.invalid" class="public">Post</button>
     </div>
   </form>
 </div>
