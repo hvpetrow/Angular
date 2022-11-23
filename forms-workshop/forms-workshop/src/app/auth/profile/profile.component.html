@@ -17,16 +17,27 @@
   </ng-container>
 
   <ng-container *ngIf="isInEditMode">
-    <form action="">
+    <form #editProfileForm="ngForm">
       <div class="flex">
         <p>Username:</p>
-        <input type="text" name="username" id="username" value="Johny" />
+        <input
+          #usernameInput
+          type="text"
+          name="username"
+          ngModel
+          required
+          minlength="5"
+          id="username"
+          value="Johny"
+        />
       </div>
       <div class="flex">
         <p>Email:</p>
         <input
           type="email"
           name="email"
+          ngModel
+          required
           id="email"
           value="john.doe@gmail.com"
         />
@@ -34,13 +45,15 @@
       <div class="flex">
         <p>Phone:</p>
         <div>
-          <select name="select-tel" id="select-tel" class="tel">
+          <select name="select-tel" ngModel id="select-tel" class="tel">
             <option value="00359">+359</option>
           </select>
-          <input type="text" name="tel" id="tel" value="885 888 888" />
+          <input type="text" name="tel" ngModel id="tel" value="885 888 888" />
         </div>
       </div>
-      <button class="red-button">Cancel</button>
+      <button type="button" (click)="isInEditMode = false" class="red-button">
+        Cancel
+      </button>
       <button class="green-button">Save</button>
     </form>
   </ng-container>
