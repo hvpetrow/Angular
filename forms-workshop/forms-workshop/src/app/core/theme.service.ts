@@ -12,15 +12,15 @@ export class ThemeService {
   constructor(private http: HttpClient) { }
 
   addTheme$(body: { themeName: string, postText: string }): Observable<ITheme> {
-    return this.http.post<ITheme>(`${apiUrl}/themes`, body, { withCredentials: true })
+    return this.http.post<ITheme>(`http://localhost:3000/api/themes`, body, { withCredentials: true })
   }
 
   loadThemeList(): Observable<ITheme[]> {
-    return this.http.get<ITheme[]>(`${apiUrl}/themes`);
+    return this.http.get<ITheme[]>(`http://localhost:3000/api/themes`);
   }
 
   loadThemeById(id: string): Observable<ITheme<IPost>> {
-    return this.http.get<ITheme<IPost>>(`${apiUrl}/themes/${id}`);
+    return this.http.get<ITheme<IPost>>(`http://localhost:3000/api/themes/${id}`);
   }
 
 }
