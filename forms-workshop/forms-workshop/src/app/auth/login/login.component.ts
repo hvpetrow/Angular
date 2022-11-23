@@ -11,6 +11,9 @@ import { emailValidator } from '../util';
 })
 export class LoginComponent implements OnInit {
 
+  errorMessage: string = '';
+
+
   loginFormGroup: FormGroup = this.formBuilder.group({
     'email': new FormControl('', [Validators.required, emailValidator]),
     'password': new FormControl('', [Validators.required, Validators.minLength(5)])
@@ -28,9 +31,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('form must be submitted');
-    console.log(this.loginFormGroup.value);
+    this.errorMessage = '';
+    this.userService.login$(this.loginFormGroup.value).subscribe({
+      next: user => {
+        console.log(user);
+        this.router.navigate(['/home']);
+      },
+      complete: () => {
+        console.log('login completed');
 
+      },
+      error: (err) => {
+        this.errorMessage = err.error.message;
+      }
+    })
 
   }
 
