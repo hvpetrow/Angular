@@ -33,6 +33,10 @@ export class UserService {
 
   }
 
+  getProfile$(): Observable<IUser> {
+    return this.httpClient.get<IUser>(`http://localhost:3000/api/users/profile`, { withCredentials: true }).pipe(tap(user => this.currentUser = user));
+  }
+
   logout(): void {
   }
 
