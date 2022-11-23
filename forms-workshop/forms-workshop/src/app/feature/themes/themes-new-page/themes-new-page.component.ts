@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ThemeService } from 'src/app/core/theme.service';
 
 @Component({
   selector: 'app-themes-new-page',
@@ -9,13 +10,24 @@ import { Router } from '@angular/router';
 })
 export class ThemesNewPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private themeService: ThemeService) {
+
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit(newThemeForm: NgForm): void {
     console.log(newThemeForm.value);
+    this.themeService.addTheme$(newThemeForm.value).subscribe({
+      next: (theme) => {
+        console.log(theme);
+        this.router.navigate(['/themes']);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
 
   }
 
