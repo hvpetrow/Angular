@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   loginHandler(): void {
     // TODO stoimenovg: validate user's data.
-    this.userService.login();
+    // this.userService.login();
     this.router.navigate(['/home']);
   }
 

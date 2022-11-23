@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CreateUserDto, UserService } from 'src/app/core/user.service';
 import { emailValidator, passwordMatch } from '../util';
 
 @Component({
@@ -26,17 +28,17 @@ export class RegisterComponent implements OnInit {
     'tel': new FormControl(null, [])
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     console.log(this.registerFormGroup.value);
 
     const { username, email, passwords, tel, telRegion } = this.registerFormGroup.value;
 
-    const body: { [key: string]: string } = {
+    const body: CreateUserDto = {
       username: username,
       email: email,
       password: passwords.password,
@@ -48,7 +50,9 @@ export class RegisterComponent implements OnInit {
     }
 
 
-    console.log(body);
+    this.userService.register$(body).subscribe(() => {
+      this.router.navigate(['/home']);
+    });
   }
 
   shouldShowErrorForControl(controlName: string, sourceGroup: FormGroup = this.registerFormGroup) {
