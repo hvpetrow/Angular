@@ -6,9 +6,9 @@ import { RouterModule } from '@angular/router';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfilePostsComponent } from './customer-profile-posts/customer-profile-posts.component';
 import { CustomerProfileAlbumsComponent } from './customer-profile-albums/customer-profile-albums.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { CoreModule } from '../core/core.module';
   imports: [
     CommonModule,
     RouterModule,
+    MatProgressSpinnerModule,
     CustomerRoutingModule,
-    SharedModule,
-    CoreModule,
+    SharedModule
   ],
   exports: [
     CustomerListComponent

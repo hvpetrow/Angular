@@ -1,0 +1,7 @@
+<div>
+  {{ date | date: "MM/dd/yyyy" }}
+</div>
+<p>
+  {{ item.name | shorten }}
+  <a [routerLink]="['/customer', item.id]"> See Profile</a>
+</p>
