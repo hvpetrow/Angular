@@ -1,7 +1,9 @@
 <div>
   {{ date | date: "MM/dd/yyyy" }}
 </div>
+
 <p>
-  {{ item.name | shorten }}
+  {{ item.name | shorten: limit }}
+  <button (click)="onExpand($event)" [hidden]="isHidden">See more</button>
   <a [routerLink]="['/customer', item.id]"> See Profile</a>
 </p>
