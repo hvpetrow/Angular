@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShortenPipe } from './shorten.pipe';
+import { MyJsonPipe } from './my-json.pipe';
 
 
 
 @NgModule({
   declarations: [
-    ShortenPipe
+    ShortenPipe,
+    MyJsonPipe
   ],
   imports: [
     CommonModule

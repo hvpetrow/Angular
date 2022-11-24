@@ -1,6 +1,7 @@
 import { Target } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '../customer.service';
+import { Observable } from 'rxjs';
+import { CustomerService, IUser } from '../customer.service';
 
 @Component({
   selector: 'app-customer-list-item',
@@ -14,10 +15,12 @@ export class CustomerListItemComponent implements OnInit {
   isHidden = false;
 
   @Input() item!: IUser;
+  customers$!: Observable<IUser[]>;
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.customers$ = this.customerService.getUsers$();
   }
 
   onExpand(e: any): void {
