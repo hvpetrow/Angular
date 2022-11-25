@@ -29,6 +29,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
+  },
+  {
     path: '404',
     component: PageNotFoundComponent
   }
