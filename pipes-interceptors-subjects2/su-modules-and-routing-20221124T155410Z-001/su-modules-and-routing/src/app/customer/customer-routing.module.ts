@@ -8,7 +8,7 @@ import { CustomerProfileComponent } from "./customer-profile/customer-profile.co
 export const CustomerRoutingModule = RouterModule.forChild([
     {
         path: '',
-        pathMatch: 'full';
+        pathMatch: 'full',
         component: CustomerListComponent,
     },
     {
