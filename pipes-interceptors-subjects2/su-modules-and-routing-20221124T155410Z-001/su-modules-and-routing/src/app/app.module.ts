@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, Engine, PetrolEngine } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CustomerModule } from './customer/customer.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,7 +32,12 @@ import { CustomForms } from './custom-forms/custom-forms.module';
     CustomForms,
     CustomerModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: Engine,
+      useClass: PetrolEngine
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

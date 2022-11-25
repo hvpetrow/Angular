@@ -7,6 +7,11 @@ import { Component, Injectable } from '@angular/core';
 })
 export class AppComponent {
   title = 'su-modules-and-routing';
+
+  constructor(private engine: Engine) {
+    console.log(this.engine);
+
+  }
 }
 
 
