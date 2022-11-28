@@ -11,23 +11,22 @@ import { Theme, ThemeService } from './core/theme.service';
 export class AppComponent {
   title = 'su-modules-and-routing';
 
-
   // constructor(@Inject(ENGINES_TOKEN) private engine: Engine) {
   //   console.log(this.engine);
 
   // }
 
   constructor(@Inject(DOCUMENT) private document: Document, private themeService: ThemeService) {
-    const themeIsDark = this.themeService.currentTheme === Theme.Dark;
-
-    if (themeIsDark) {
-      this.document.body.classList.add('dark-theme');
-    } else {
-      this.document.body.classList.add('light-theme')
-    }
+    this.themeService.onThemeChange$.subscribe(() => {
+      const themeIsDark = this.themeService.currentTheme === Theme.Dark;
+      if (themeIsDark) {
+        this.document.body.classList.add('dark-theme');
+      } else {
+        this.document.body.classList.add('light-theme')
+      }
+    });
   }
 }
-
 
 export abstract class Engine {
 }
