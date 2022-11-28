@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Injectable, Output } from '@angular/core';
-import { EventEmitter } from 'stream';
 import { ENGINES_TOKEN } from './app.module';
+import { Theme, ThemeService } from './core/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,14 @@ import { ENGINES_TOKEN } from './app.module';
 export class AppComponent {
   title = 'su-modules-and-routing';
 
-  @Output() themeChanged = new EventEmitter();
 
   // constructor(@Inject(ENGINES_TOKEN) private engine: Engine) {
   //   console.log(this.engine);
 
   // }
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    const themeIsDark = true;
+  constructor(@Inject(DOCUMENT) private document: Document, private themeService: ThemeService) {
+    const themeIsDark = this.themeService.currentTheme === Theme.Dark;
 
     if (themeIsDark) {
       this.document.body.classList.add('dark-theme');

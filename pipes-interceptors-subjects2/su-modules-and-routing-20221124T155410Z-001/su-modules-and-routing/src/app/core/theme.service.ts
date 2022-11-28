@@ -12,7 +12,11 @@ export class ThemeService {
 
   currentTheme: Theme = Theme.Light;
 
-  constructor(newTheme: Theme) {
+  constructor() {
+
+  }
+
+  changeTheme(newTheme: Theme) {
     this.currentTheme = newTheme;
   }
 }

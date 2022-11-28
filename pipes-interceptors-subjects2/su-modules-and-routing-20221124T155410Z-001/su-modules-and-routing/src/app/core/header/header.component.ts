@@ -1,5 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { EventEmitter } from 'stream';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
+  // @Output() themeChanged = new EventEmitter();
 
   @ViewChild('themeForm') themeForm!: NgForm;
 
-  constructor() { }
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +21,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.themeForm.valueChanges?.subscribe(value => {
       console.log('theme changed', value);
+      this.themeService.changeTheme(value.theme);
+      // this.themeChanged.emit(value.theme);
     })
   }
 
