@@ -1,4 +1,6 @@
-import { Component, Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Injectable, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 import { ENGINES_TOKEN } from './app.module';
 
 @Component({
@@ -9,9 +11,21 @@ import { ENGINES_TOKEN } from './app.module';
 export class AppComponent {
   title = 'su-modules-and-routing';
 
-  constructor(@Inject(ENGINES_TOKEN) private engine: Engine) {
-    console.log(this.engine);
+  @Output() themeChanged = new EventEmitter();
 
+  // constructor(@Inject(ENGINES_TOKEN) private engine: Engine) {
+  //   console.log(this.engine);
+
+  // }
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    const themeIsDark = true;
+
+    if (themeIsDark) {
+      this.document.body.classList.add('dark-theme');
+    } else {
+      this.document.body.classList.add('light-theme')
+    }
   }
 }
 
