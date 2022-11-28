@@ -19,9 +19,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.themeForm.setValue({
+        theme: this.themeService.currentTheme
+      });
+    });
+
     this.themeForm.valueChanges?.subscribe(value => {
-      console.log('theme changed', value);
-      this.themeService.changeTheme(value.theme);
+      if (value.theme) {
+        console.log('theme changed', value);
+        this.themeService.changeTheme(value.theme);
+      }
       // this.themeChanged.emit(value.theme);
     })
   }
