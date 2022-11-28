@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { EventEmitter } from 'stream';
 import { ThemeService } from '../theme.service';
 
 @Component({
