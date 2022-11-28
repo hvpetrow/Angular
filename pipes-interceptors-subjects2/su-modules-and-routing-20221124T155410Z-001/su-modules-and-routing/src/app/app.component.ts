@@ -22,7 +22,7 @@ export class AppComponent {
       if (themeIsDark) {
         this.document.body.classList.add('dark-theme');
       } else {
-        this.document.body.classList.add('light-theme')
+        this.document.body.classList.remove('dark-theme')
       }
     });
   }
