@@ -19,6 +19,8 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(tap(event => {
       if (event instanceof HttpResponse) {
         if (event.url?.endsWith('login') || event.url?.endsWith('register')) {
+          console.log('login/register happened');
+
           const newlyLoggedUser = event.body;
           this.authService.handleLogin(newlyLoggedUser);
         }
