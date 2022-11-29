@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth.service';
 import { UserService } from 'src/app/core/user.service';
 import { ITheme } from '../../../core/interfaces';
 
@@ -9,12 +11,12 @@ import { ITheme } from '../../../core/interfaces';
 })
 export class ThemeListItemComponent implements OnChanges {
 
-  isLoggedIn: boolean = this.userService.isLogged;
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
   canSubscribe: boolean = false;
 
   @Input() theme: ITheme;
 
-  constructor(private userService: UserService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnChanges(): void {
     console.log('subs', this.theme.subscribers.includes('5fa64b162183ce1728ff371d'));
