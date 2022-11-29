@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { IUser } from '../interfaces';
 import { UserService } from '../user.service';
 
@@ -17,7 +18,7 @@ export class HeaderComponent {
     return this.userService.currentUser;
   }
 
-  constructor(public userService: UserService) {
+  constructor(public authService: AuthService) {
 
   }
 

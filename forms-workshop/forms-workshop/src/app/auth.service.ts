@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { IUser } from './core/interfaces';
 import { CreateUserDto } from './core/user.service';
@@ -9,8 +9,11 @@ import { CreateUserDto } from './core/user.service';
   providedIn: 'root'
 })
 export class AuthService {
+  private _currentUser = new BehaviorSubject<IUser>(undefined);
+  currentUser$ = this._currentUser.asObservable();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   login$(userData: { email: string, password: string }): Observable<IUser> {
     return this.httpClient
@@ -21,7 +24,8 @@ export class AuthService {
       )
   }
 
-  logout(): void {
+  logout$() {
+    return this.httpClient.post<IUser>(`http://localhost:3000/api/logout`, {}, { withCredentials: true })
   }
 
   register$(userData: CreateUserDto): Observable<IUser> {
@@ -30,5 +34,6 @@ export class AuthService {
 
   handleLogin(newUser: IUser) {
     console.log(newUser);
+    this._currentUser.next(newUser);
   }
 }
