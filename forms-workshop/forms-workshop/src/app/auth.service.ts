@@ -12,6 +12,7 @@ export class AuthService {
   private _currentUser = new BehaviorSubject<IUser>(undefined);
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -35,5 +36,9 @@ export class AuthService {
   handleLogin(newUser: IUser) {
     console.log(newUser);
     this._currentUser.next(newUser);
+  }
+
+  handleLogout() {
+    this._currentUser.next(undefined);
   }
 }

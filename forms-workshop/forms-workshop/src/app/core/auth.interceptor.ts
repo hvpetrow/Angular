@@ -23,6 +23,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
           const newlyLoggedUser = event.body;
           this.authService.handleLogin(newlyLoggedUser);
+        } else if (event.url.endsWith('logout')) {
+          this.authService.handleLogout();
         }
       }
     }));
