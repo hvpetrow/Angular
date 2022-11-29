@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { IUser } from '../interfaces';
 import { UserService } from '../user.service';
@@ -9,20 +10,13 @@ import { UserService } from '../user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-  get isLogged(): boolean {
-    return this.userService.isLogged;
-  }
-
-  get currentUser(): IUser {
-    return this.userService.currentUser;
-  }
+  currentUser$: Observable<IUser> = this.authService.currentUser$;
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
 
   constructor(public authService: AuthService) {
 
   }
 
   logoutHandler(): void {
-    this.userService.logout();
   }
 }
