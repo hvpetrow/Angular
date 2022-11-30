@@ -11,7 +11,7 @@ const routes: Routes = [
         component: ThemesPageComponent,
     },
     {
-        path: 'new',
+        path: '/new',
         canActivate: [AuthGuard],
         component: ThemesNewPageComponent,
     },

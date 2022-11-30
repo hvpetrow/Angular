@@ -2,12 +2,17 @@
   <div class="theme-name-wrapper">
     <div class="theme-name">
       <a [routerLink]="['/themes', theme._id]" class="normal">
-        <h2>{{ theme.themeName }}</h2>
+        <h2 *ngIf="theme.themeName.length > 25">
+          {{ (theme.themeName | slice: 0:25) + "..." }}
+        </h2>
+        <h2 *ngIf="theme.themeName.length <= 25">
+          {{ theme.themeName }}
+        </h2>
       </a>
       <div class="columns">
         <div>
           <p>
-            Date: <time>{{ theme.created_at }}</time>
+            Date: <time>{{ theme.created_at |  date: 'short' }}</time>
           </p>
           <div class="nick-name">
             <p>
