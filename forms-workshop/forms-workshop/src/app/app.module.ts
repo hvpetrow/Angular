@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { CoreModule } from './core/core.module';
-import { ThemesModule } from './feature/themes/themes.module';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './feature/pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +20,6 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     CoreModule.forRoot(),
     AppRoutingModule,
-    ThemesModule,
     PagesModule,
   ],
   providers: [

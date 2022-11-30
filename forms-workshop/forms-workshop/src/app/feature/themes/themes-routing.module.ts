@@ -6,16 +6,17 @@ import { ThemesPageComponent } from "./themes-page/themes-page.component";
 
 const routes: Routes = [
     {
-        path: 'themes',
+        path: '',
+        pathMatch: 'full',
         component: ThemesPageComponent,
     },
     {
-        path: 'themes/new',
+        path: 'new',
         canActivate: [AuthGuard],
         component: ThemesNewPageComponent,
     },
     {
-        path: 'themes/:themeId',
+        path: ':themeId',
         component: ThemesDetailPageComponent,
     },
 ];
