@@ -10,7 +10,6 @@ import { ThemesModule } from './feature/themes/themes.module';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './feature/pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     ThemesModule,
     PagesModule,
-    AuthModule,
   ],
   providers: [
   ],
