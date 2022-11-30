@@ -4,7 +4,7 @@
       <h3>{{ post.themeId.themeName }}</h3>
       <p>{{ post.text }}</p>
       <p>
-        <span>{{ post.created_at | date: "short" }}</span>
+        <span>{{ post.created_at | timeAgo }}</span>
       </p>
     </a>
   </div>
