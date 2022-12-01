@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 import { IUser } from './core/interfaces';
 import { CreateUserDto } from './core/user.service';
 
@@ -39,7 +39,11 @@ export class AuthService {
   }
 
   authenticate(): Observable<IUser> {
-    return this.httpClient.get<IUser>(`http://localhost:3000/api/users/profile`, { withCredentials: true }).pipe(tap(currentProfile => this.handleLogin(currentProfile)));
+    return this.httpClient.get<IUser>(`http://localhost:3000/api/users/profile`, { withCredentials: true })
+      .pipe(tap(currentProfile => this.handleLogin(currentProfile)),
+        catchError((err) => {
+          return EMPTY;
+        }));
   }
 
   handleLogout() {
