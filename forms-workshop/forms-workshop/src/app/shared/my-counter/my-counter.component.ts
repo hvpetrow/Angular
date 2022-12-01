@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { IRootState } from 'src/app/+store';
 
 @Component({
   selector: 'app-my-counter',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCounterComponent implements OnInit {
 
-  constructor() { }
+  count$: Observable<number> = this.store.select(rootState => rootState.counter);
+
+  constructor(private store: Store<IRootState>) { }
+
 
   ngOnInit(): void {
   }

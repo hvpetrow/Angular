@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './feature/pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
+import { counterReducer, IRootState } from './+store';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,10 @@ import { AuthService } from './auth.service';
     CoreModule.forRoot(),
     AppRoutingModule,
     PagesModule,
+    StoreModule.forRoot<IRootState>({
+      counter: counterReducer
+    }),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {
