@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { IRootState } from 'src/app/+store';
+import { decrement, increment, IRootState, reset } from 'src/app/+store';
 
 @Component({
   selector: 'app-my-counter',
@@ -19,14 +19,16 @@ export class MyCounterComponent implements OnInit {
   }
 
   increment(): void {
-
+    this.store.dispatch(increment());
   }
 
   decrement(): void {
+    this.store.dispatch(decrement());
 
   }
 
   reset(): void {
+    this.store.dispatch(reset());
 
   }
 
