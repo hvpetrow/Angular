@@ -27,8 +27,9 @@ import { AuthService } from './auth.service';
     {
       provide: APP_INITIALIZER,
       useFactory: (authService: AuthService) => {
-        return authService.authenticate()
+        return () => authService.authenticate();
       },
+      deps: [AuthService],
       multi: true
     }
   ],
