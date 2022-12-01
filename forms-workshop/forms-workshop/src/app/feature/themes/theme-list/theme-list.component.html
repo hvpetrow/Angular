@@ -1,3 +1,7 @@
+<form action="">
+  <input [formControl]="searchControl" type="text" />
+</form>
+
 <div *ngIf="themeList">
   <app-theme-list-item
     *ngFor="let theme of themeList | slice: 0:3"
