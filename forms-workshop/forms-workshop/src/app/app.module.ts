@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from './feature/pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,13 @@ import { AppRoutingModule } from './app-routing.module';
     PagesModule,
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (authService: AuthService) => {
+        return authService.authenticate()
+      },
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent,

@@ -38,6 +38,10 @@ export class AuthService {
     this._currentUser.next(newUser);
   }
 
+  authenticate(): Observable<IUser> {
+    return this.httpClient.get<IUser>(`http://localhost:3000/api/users/profile`, { withCredentials: true }).pipe(tap(currentProfile => this.handleLogin(currentProfile)));
+  }
+
   handleLogout() {
     this._currentUser.next(undefined);
   }
