@@ -12,4 +12,16 @@ export class MyCounterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  increment(): void {
+
+  }
+
+  decrement(): void {
+
+  }
+
+  reset(): void {
+
+  }
+
 }
