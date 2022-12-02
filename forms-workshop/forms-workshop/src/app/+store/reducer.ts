@@ -14,4 +14,4 @@ export const currentUserReducer = createReducer<IUser>(
         return action.user
     }),
     on(logout, () => undefined)
-)
+) 
