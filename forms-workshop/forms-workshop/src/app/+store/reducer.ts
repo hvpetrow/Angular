@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { IUser } from "../core/interfaces";
-import { decrement, increment, reset } from "./actions";
+import { decrement, increment, login, logout, reset } from "./actions";
 
 export const counterReducer = createReducer<number>(0,
     on(increment, (state) => state + 1),
@@ -10,6 +10,8 @@ export const counterReducer = createReducer<number>(0,
 
 export const currentUserReducer = createReducer<IUser>(
     undefined,
-    // on(login),
-    // on(logout)
+    on(login, (state, action) => {
+        return action.user
+    }),
+    on(logout, () => undefined)
 )

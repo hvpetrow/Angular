@@ -11,8 +11,7 @@ import { CreateUserDto } from './core/user.service';
   providedIn: 'root'
 })
 export class AuthService {
-  private _currentUser = new BehaviorSubject<IUser>(undefined);
-  currentUser$ = this._currentUser.asObservable();
+  currentUser$ = this.store.select(globalState => globalState.currentUser);
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
 
   constructor(private httpClient: HttpClient, private store: Store<IRootState>) {
