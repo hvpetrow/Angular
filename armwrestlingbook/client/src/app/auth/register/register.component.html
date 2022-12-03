@@ -1,19 +1,36 @@
-<form>
+<form (ngSubmit)="handleRegister()" [formGroup]="registerForm">
   <h3>Register Here</h3>
 
   <label for="email">Email</label>
-  <input type="text" placeholder="Email" id="email" />
+  <input formControlName="email" type="text" placeholder="Email" id="email" />
 
   <label for="username">Username</label>
-  <input type="text" placeholder="username123" id="username" />
+  <input
+    formControlName="username"
+    type="text"
+    placeholder="username123"
+    id="username"
+  />
 
   <label for="password">Password</label>
-  <input type="password" placeholder="Password" id="password" />
+  <input
+    formControlName="password"
+    type="password"
+    placeholder="Password"
+    id="password"
+  />
 
   <label for="repass">Re-Password</label>
-  <input type="repass" placeholder="******" id="repass" />
+  <input
+    formControlName="repass"
+    type="repass"
+    placeholder="******"
+    id="repass"
+  />
 
-  <button class="primary-btn">Register</button>
+  <button [disabled]="registerForm.invalid" class="primary-btn">
+    Register
+  </button>
 
   <div class="reg-link">
     <a routerLink="/login">You have an account? Sign In now!</a>
