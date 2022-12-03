@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './authentication/login/login.module';
+import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home/home.module';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { HomeModule } from './home/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
+    AuthModule,
     HomeModule
   ],
   providers: [],
