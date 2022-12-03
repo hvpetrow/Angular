@@ -14,15 +14,23 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.pattern(/^[a-z]+@[a-z]+\.[a-z]+$/)]),
       username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      repass: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      repass: new FormControl('', [Validators.required, this.isMatchPassword()]),
     });
+  }
+
+  isMatchPassword() {
+    return (c: FormControl) => {
+      if (!c.parent || c.value === c.parent.value.password) {
+        return null;
+      }
+      return { invalid: true };
+    }
   }
 
   handleRegister() {
 
   }
-
 }
