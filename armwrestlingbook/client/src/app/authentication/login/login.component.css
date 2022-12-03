@@ -11,7 +11,7 @@ body {
 }
 
 form {
-  height: 520px;
+  height: 500px;
   width: 400px;
   background-color: #383838 /*rgba(255, 255, 255, 0.13); */;
   position: absolute;
@@ -24,9 +24,9 @@ form {
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
 }
+
 form * {
   font-family: "Poppins", sans-serif;
-  color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
@@ -36,6 +36,11 @@ form h3 {
   font-weight: 500;
   line-height: 42px;
   text-align: center;
+}
+
+label,
+h3 {
+  color: #ffffff;
 }
 
 label {
@@ -56,38 +61,36 @@ input {
   font-weight: 300;
 }
 ::placeholder {
-  color: #e5e5e5;
+  color: #ffffff;
 }
-button {
+.primary-btn {
   margin-top: 50px;
   width: 100%;
-  background-color: #ffffff;
-  color: #080710;
+  background-color: #080710;
+  color: #ffffff;
   padding: 15px 0;
   font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
 }
-.social {
-  margin-top: 30px;
-  display: flex;
+
+.primary-btn:hover {
+  background-color: #ffffff;
+  color: #080710;
 }
-.social div {
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255, 255, 255, 0.27);
-  color: #eaf0fb;
+
+.reg-link {
+  margin-top: 50px;
   text-align: center;
 }
-.social div:hover {
-  background-color: rgba(255, 255, 255, 0.47);
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #ffffff;
 }
-.social .fb {
-  margin-left: 25px;
-}
-.social i {
-  margin-right: 4px;
+
+a:hover {
+  color: #74d5dd;
 }
