@@ -1,13 +1,23 @@
-<form>
+<form (ngSubmit)="handleLogin()" [formGroup]="loginForm">
   <h3>Login Here</h3>
 
   <label for="email">Email</label>
-  <input type="text" placeholder="john.doe@gmail.com" id="email" />
+  <input
+    formControlName="email"
+    type="text"
+    placeholder="john.doe@gmail.com"
+    id="email"
+  />
 
   <label for="password">Password</label>
-  <input type="password" placeholder="******" id="password" />
+  <input
+    formControlName="password"
+    type="password"
+    placeholder="******"
+    id="password"
+  />
 
-  <button class="primary-btn">Log In</button>
+  <button [disabled]="loginForm.invalid" class="primary-btn">Log In</button>
 
   <div class="reg-link">
     <a routerLink="/register">You don't have an account? Register now!</a>
