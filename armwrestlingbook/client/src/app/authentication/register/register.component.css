@@ -39,7 +39,8 @@ form h3 {
 }
 
 label,
-h3 {
+h3,
+input {
   color: #ffffff;
 }
 
@@ -61,7 +62,7 @@ input {
   font-weight: 300;
 }
 ::placeholder {
-  color: #ffffff;
+  color: #999494;
 }
 .primary-btn {
   margin-top: 50px;
