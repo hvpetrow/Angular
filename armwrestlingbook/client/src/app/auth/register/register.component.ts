@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
   }
 
   handleRegister() {
+    console.log(this.registerForm.value);
 
   }
 }

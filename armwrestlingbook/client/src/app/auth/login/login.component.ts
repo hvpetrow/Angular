@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
+    console.log(this.loginForm.value);
 
   }
 }
