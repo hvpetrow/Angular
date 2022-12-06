@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AngularFireAuth, private router: Router) { }
+  constructor(private fb: FormBuilder, public auth: AngularFireAuth, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -34,10 +33,10 @@ export class RegisterComponent implements OnInit {
   }
 
   handleRegister() {
-    console.log('Form value: ' + this.registerForm.value);
+    console.log(this.registerForm.value);
     const { email, password } = this.registerForm.value;
     this.auth.createUserWithEmailAndPassword(email, password).then(user => {
-      console.log('Created User From Firebase' + user);
+      console.log('Created User From Firebase' + user.user);
     });
 
     this.router.navigate(['/']);
