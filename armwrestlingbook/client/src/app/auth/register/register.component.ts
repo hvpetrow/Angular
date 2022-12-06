@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, public auth: AngularFireAuth, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -35,10 +36,7 @@ export class RegisterComponent implements OnInit {
   handleRegister() {
     console.log(this.registerForm.value);
     const { email, password } = this.registerForm.value;
-    this.auth.createUserWithEmailAndPassword(email, password).then(user => {
-      console.log('Created User From Firebase' + user.user);
-    });
-
+    this.authService.register(email, password);
     this.router.navigate(['/']);
   }
 }
