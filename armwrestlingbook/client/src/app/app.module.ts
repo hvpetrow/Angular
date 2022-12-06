@@ -16,6 +16,7 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    HotToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

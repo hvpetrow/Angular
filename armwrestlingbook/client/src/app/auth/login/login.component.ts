@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -25,8 +25,14 @@ export class LoginComponent implements OnInit {
   handleLogin() {
     console.log(this.loginForm.value);
     const { email, password } = this.loginForm.value;
-    this.authService.login(email, password).subscribe(() => {
-      this.router.navigate(['/']);
-    });
+    this.authService.login(email, password)
+      .pipe(this.toast.observe({
+        success: 'Logged successfully',
+        loading: 'Logging in...',
+        error: 'Wrong email or password'
+      })
+      ).subscribe(() => {
+        this.router.navigate(['/']);
+      });
   }
 }
