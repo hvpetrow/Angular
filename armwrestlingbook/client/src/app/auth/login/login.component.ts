@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       .pipe(this.toast.observe({
         success: 'Logged successfully',
         loading: 'Logging in...',
-        error: 'Wrong email or password'
+        error: 'Wrong email or'
       })
       ).subscribe(() => {
         this.router.navigate(['/']);

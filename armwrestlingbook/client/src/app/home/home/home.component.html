@@ -1,1 +1,11 @@
-<p>home works!</p>
+<h1 *ngIf="user$ | async as user">Welcome to our app, {{ user.email }}</h1>
+<ng-container
+  *ngIf="authService.currentUser$ | async as user; else entranceButtons"
+>
+  <button (click)="onLogout()">Logout</button>
+</ng-container>
+
+<ng-template #entranceButtons>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Register</a>
+</ng-template>
