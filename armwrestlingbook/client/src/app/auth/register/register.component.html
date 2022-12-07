@@ -9,6 +9,23 @@
     id="email"
   />
 
+  <div
+    [hidden]="
+      registerForm.controls['email'].valid ||
+      registerForm.controls['email'].pristine
+    "
+  >
+    Email should be valid!
+  </div>
+  <div
+    *ngIf="
+  registerForm.controls['email'].errors?.['required'] &&
+  registerForm.controls['email'].touched
+"
+  >
+    Email is required!
+  </div>
+
   <label for="username">Username</label>
   <input
     formControlName="username"
@@ -16,6 +33,31 @@
     placeholder="username123"
     id="username"
   />
+
+  <div
+    [hidden]="
+      registerForm.controls['username'].valid ||
+      registerForm.controls['username'].pristine
+    "
+  >
+    Username should be valid
+  </div>
+  <div
+    *ngIf="
+    registerForm.controls['username'].errors?.['required'] &&
+    registerForm.controls['username'].touched
+  "
+  >
+    Username is required!
+  </div>
+  <div
+    *ngIf="
+    registerForm.controls['username'].errors?.['minLength'] &&
+    registerForm.controls['username'].touched
+  "
+  >
+    Username must be more than 2 characters long!
+  </div>
 
   <label for="password">Password</label>
   <input
@@ -25,6 +67,24 @@
     id="password"
   />
 
+  <div
+    [hidden]="
+      registerForm.controls['password'].valid ||
+      registerForm.controls['password'].pristine
+    "
+  >
+    Password must contain only letters and digits and must be between 6 and 16
+    symbols
+  </div>
+  <div
+    *ngIf="
+    registerForm.controls['password'].errors?.['required'] &&
+    registerForm.controls['password'].touched
+  "
+  >
+    Password is required!
+  </div>
+
   <label for="repass">Re-Password</label>
   <input
     formControlName="repass"
@@ -32,6 +92,23 @@
     placeholder="******"
     id="repass"
   />
+
+  <div
+    [hidden]="
+      registerForm.controls['repass'].valid ||
+      registerForm.controls['repass'].pristine
+    "
+  >
+    Both passwords must match
+  </div>
+  <div
+    *ngIf="
+    registerForm.controls['repass'].errors?.['required'] &&
+    registerForm.controls['repass'].touched
+  "
+  >
+    Repass is required!
+  </div>
 
   <button [disabled]="registerForm.invalid" class="primary-btn">
     Register
