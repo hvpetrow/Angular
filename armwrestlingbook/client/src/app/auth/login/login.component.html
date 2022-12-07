@@ -13,6 +13,7 @@
     [hidden]="
       loginForm.controls['email'].valid || loginForm.controls['email'].pristine
     "
+    class="alert-error"
   >
     Email should be valid!
   </div>
@@ -21,6 +22,7 @@
   loginForm.controls['email'].errors?.['required'] &&
   loginForm.controls['email'].touched
 "
+class="alert-error"
   >
     Email is required!
   </div>
@@ -37,6 +39,7 @@
       loginForm.controls['password'].valid ||
       loginForm.controls['password'].pristine
     "
+    class="alert-error"
   >
     Password should be more than 5 characters long!
   </div>
@@ -45,6 +48,7 @@
 loginForm.controls['password'].errors?.['required'] &&
 loginForm.controls['password'].touched
 "
+class="alert-error"
   >
     Password is required!
   </div>
