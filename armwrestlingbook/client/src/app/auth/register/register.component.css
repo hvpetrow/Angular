@@ -29,7 +29,6 @@ form * {
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.5px;
   outline: none;
-  border: none;
 }
 form h3 {
   font-size: 32px;
@@ -94,4 +93,14 @@ a {
 
 a:hover {
   color: #74d5dd;
+}
+
+.alert-error {
+  color: #f33;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.input-error {
+  border-color: #f33;
 }

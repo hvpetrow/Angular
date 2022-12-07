@@ -7,6 +7,11 @@
     type="text"
     placeholder="john.doe@gmail.com"
     id="email"
+    [ngClass]="{
+      'input-error':
+        registerForm.controls['email'].invalid &&
+        registerForm.controls['email'].touched
+    }"
   />
 
   <div
@@ -34,6 +39,11 @@
     type="text"
     placeholder="username123"
     id="username"
+    [ngClass]="{
+      'input-error':
+        registerForm.controls['username'].invalid &&
+        registerForm.controls['username'].touched
+    }"
   />
 
   <div
@@ -70,6 +80,11 @@
     type="password"
     placeholder="******"
     id="password"
+    [ngClass]="{
+      'input-error':
+        registerForm.controls['password'].invalid &&
+        registerForm.controls['password'].touched
+    }"
   />
 
   <div
@@ -79,8 +94,7 @@
     "
     class="alert-error"
   >
-    Password must contain only letters and digits and must be between 6 and 16
-    symbols
+    Password must be between 6 and 16 symbols
   </div>
   <div
     *ngIf="
@@ -98,6 +112,11 @@
     type="password"
     placeholder="******"
     id="repass"
+    [ngClass]="{
+      'input-error':
+        registerForm.controls['repass'].invalid &&
+        registerForm.controls['repass'].touched
+    }"
   />
 
   <div

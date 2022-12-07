@@ -7,6 +7,11 @@
     type="text"
     placeholder="john.doe@gmail.com"
     id="email"
+    [ngClass]="{
+      'input-error':
+        loginForm.controls['email'].invalid &&
+        loginForm.controls['email'].touched
+    }"
   />
 
   <div
@@ -22,7 +27,7 @@
   loginForm.controls['email'].errors?.['required'] &&
   loginForm.controls['email'].touched
 "
-class="alert-error"
+    class="alert-error"
   >
     Email is required!
   </div>
@@ -33,6 +38,11 @@ class="alert-error"
     type="password"
     placeholder="******"
     id="password"
+    [ngClass]="{
+      'input-error':
+        loginForm.controls['password'].invalid &&
+        loginForm.controls['password'].touched
+    }"
   />
   <div
     [hidden]="
@@ -48,7 +58,7 @@ class="alert-error"
 loginForm.controls['password'].errors?.['required'] &&
 loginForm.controls['password'].touched
 "
-class="alert-error"
+    class="alert-error"
   >
     Password is required!
   </div>
