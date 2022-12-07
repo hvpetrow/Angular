@@ -11,7 +11,6 @@ body {
 }
 
 form {
-  height: 710px;
   width: 400px;
   background-color: #383838 /*rgba(255, 255, 255, 0.13); */;
   position: absolute;
@@ -23,6 +22,8 @@ form {
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
+  display: flex;
+  flex-direction: column;
 }
 
 form * {
@@ -66,7 +67,7 @@ input {
 .primary-btn {
   margin-top: 50px;
   width: 100%;
-  background-color: #080710;
+  background-color: #0c0e13;
   color: #ffffff;
   padding: 15px 0;
   font-size: 18px;
