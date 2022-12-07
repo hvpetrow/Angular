@@ -9,6 +9,22 @@
     id="email"
   />
 
+  <div
+    [hidden]="
+      loginForm.controls['email'].valid || loginForm.controls['email'].pristine
+    "
+  >
+    Email should be valid!
+  </div>
+  <div
+    *ngIf="
+  loginForm.controls['email'].errors?.['required'] &&
+  loginForm.controls['email'].touched
+"
+  >
+    Email is required!
+  </div>
+
   <label for="password">Password</label>
   <input
     formControlName="password"
@@ -16,6 +32,22 @@
     placeholder="******"
     id="password"
   />
+  <div
+    [hidden]="
+      loginForm.controls['password'].valid ||
+      loginForm.controls['password'].pristine
+    "
+  >
+    Password should be more than 5 characters long!
+  </div>
+  <div
+    *ngIf="
+loginForm.controls['password'].errors?.['required'] &&
+loginForm.controls['password'].touched
+"
+  >
+    Password is required!
+  </div>
 
   <button [disabled]="loginForm.invalid" class="primary-btn">Log In</button>
 
