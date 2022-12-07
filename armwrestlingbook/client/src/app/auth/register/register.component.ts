@@ -46,4 +46,5 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/']);
       });
   }
+  //TODO:Implement server error handling !!!
 }
