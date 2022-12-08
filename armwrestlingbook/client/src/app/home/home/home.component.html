@@ -2,7 +2,7 @@
 <ng-container
   *ngIf="authService.currentUser$ | async as user; else entranceButtons"
 >
-  <button (click)="onLogout()">Logout</button>
+  <!-- <button (click)="onLogout()">Logout</button> -->
 </ng-container>
 
 <ng-template #entranceButtons>

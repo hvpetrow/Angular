@@ -26,6 +26,11 @@ li {
   margin: auto;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 li:hover {
   background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
   /* background-image: url("/client/src/assets/button.webp"); */

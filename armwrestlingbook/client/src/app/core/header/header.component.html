@@ -1,8 +1,11 @@
 <nav class="nav">
   <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Gallery</li>
-    <li>Contact us</li>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/posts">Posts</a></li>
+    <li *ngIf="user$"><a routerLink="/add-post">Add Post</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/register">Register</a></li>
+    <li *ngIf=""><a (click)="onLogout()">Logout</a></li>
   </ul>
 </nav>
