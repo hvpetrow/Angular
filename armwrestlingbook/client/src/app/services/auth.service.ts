@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, authState } from '@angular/fire/auth';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { from } from 'rxjs';
+import { from, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { from } from 'rxjs';
 export class AuthService {
 
   currentUser$ = authState(this.auth);
+  isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
 
   constructor(private auth: Auth) { }
 

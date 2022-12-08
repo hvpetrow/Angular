@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   user$ = this.authService.currentUser$;
+  isLoggedIn$ = this.authService.isLoggedIn$;
 
 
   constructor(private authService: AuthService, private router: Router) { }

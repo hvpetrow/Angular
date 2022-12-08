@@ -15,10 +15,10 @@ ul {
   justify-content: space-between;
   text-align: center;
   background-color: #383838;
+  left: 0;
 }
 
 li {
-  padding: 1rem 2rem 1.15rem;
   text-transform: uppercase;
   cursor: pointer;
   color: #fff;
@@ -27,8 +27,10 @@ li {
 }
 
 a {
+  padding: 1rem 2rem 1.15rem;
   text-decoration: none;
   color: #fff;
+  display: block;
 }
 
 li:hover {
