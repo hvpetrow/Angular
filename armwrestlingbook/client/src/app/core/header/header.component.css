@@ -4,10 +4,14 @@
   list-style-type: none;
 }
 
+nav {
+  margin-bottom: 150px;
+}
+
 ul {
   display: flex;
   width: 100%;
-  margin: auto;
+  margin: 0px auto;
   justify-content: space-between;
   text-align: center;
   background-color: #383838;
