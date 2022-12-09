@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState } from '@angular/fire/auth';
+import { Auth, authState, user } from '@angular/fire/auth';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { from, map } from 'rxjs';
 
@@ -10,6 +10,8 @@ export class AuthService {
 
   currentUser$ = authState(this.auth);
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
+  // userId$ = this.currentUser$.subscribe((user => user?.uid));// How to return the direct the id
+
 
   constructor(private auth: Auth) { }
 

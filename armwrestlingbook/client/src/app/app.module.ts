@@ -17,6 +17,7 @@ import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-confi
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
+import { ContestModule } from './contest/contest.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CoreModule } from './core/core.module';
     AuthModule,
     HomeModule,
     CoreModule,
+    ContestModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
