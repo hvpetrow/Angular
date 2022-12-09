@@ -1,62 +1,125 @@
 <section class="createPage">
-  <form>
+  <form (ngSubmit)="onSubmit()" [formGroup]="createContestForm">
     <fieldset>
       <legend>Add Contest</legend>
       <div class="container">
-        <label for="name" class="vhide">Album name</label>
+        <label for="title" class="vhide">Title</label>
         <input
-          id="name"
-          name="name"
+          formControlName="title"
+          id="title"
+          name="title"
           class="name"
           type="text"
-          placeholder="Album name"
+          placeholder="Title"
+          [ngClass]="{
+            'input-error':
+              createContestForm.controls['title'].invalid &&
+              createContestForm.controls['title'].touched
+          }"
         />
-        <label for="imgUrl" class="vhide">Image Url</label>
+        <div
+          *ngIf="
+  createContestForm.controls['title'].errors?.['required'] &&
+  createContestForm.controls['title'].touched
+"
+          class="alert-error"
+        >
+          Title is required!
+        </div>
+
+        <label for="date" class="vhide">Date</label>
         <input
-          id="imgUrl"
-          name="imgUrl"
-          class="imgUrl"
+          formControlName="date"
+          id="date"
+          name="date"
+          class="name"
           type="text"
-          placeholder="Image Url"
+          placeholder="dd/mm/yyyy"
+          [ngClass]="{
+            'input-error':
+              createContestForm.controls['date'].invalid &&
+              createContestForm.controls['date'].touched
+          }"
         />
-        <label for="price" class="vhide">Price</label>
+        <div
+          *ngIf="
+  createContestForm.controls['date'].errors?.['required'] &&
+  createContestForm.controls['date'].touched
+"
+          class="alert-error"
+        >
+          Date is required!
+        </div>
+
+        <label for="place" class="vhide">Place</label>
         <input
-          id="price"
-          name="price"
-          class="price"
+          formControlName="place"
+          id="place"
+          name="place"
+          class="name"
           type="text"
-          placeholder="Price"
+          placeholder="Sofia,Bulgaria"
+          [ngClass]="{
+            'input-error':
+              createContestForm.controls['place'].invalid &&
+              createContestForm.controls['place'].touched
+          }"
         />
-        <label for="releaseDate" class="vhide">Release date</label>
+        <div
+          *ngIf="
+  createContestForm.controls['place'].errors?.['required'] &&
+  createContestForm.controls['place'].touched
+"
+          class="alert-error"
+        >
+          Place is required!
+        </div>
+
+        <label for="photoUrl" class="vhide">PhotoUrl</label>
         <input
-          id="releaseDate"
-          name="releaseDate"
-          class="releaseDate"
+          formControlName="photoUrl"
+          id="photoUrl"
+          name="photoUrl"
+          class="name"
           type="text"
-          placeholder="Release date"
+          placeholder="http:..."
+          [ngClass]="{
+            'input-error':
+              createContestForm.controls['photoUrl'].invalid &&
+              createContestForm.controls['photoUrl'].touched
+          }"
         />
-        <label for="artist" class="vhide">Artist</label>
-        <input
-          id="artist"
-          name="artist"
-          class="artist"
-          type="text"
-          placeholder="Artist"
-        />
-        <label for="genre" class="vhide">Genre</label>
-        <input
-          id="genre"
-          name="genre"
-          class="genre"
-          type="text"
-          placeholder="Genre"
-        />
+        <div
+          *ngIf="
+  createContestForm.controls['photoUrl'].errors?.['required'] &&
+  createContestForm.controls['photoUrl'].touched
+"
+          class="alert-error"
+        >
+          PhotoUrl is required!
+        </div>
+
         <label for="description" class="vhide">Description</label>
         <textarea
+          formControlName="description"
           name="description"
           class="description"
           placeholder="Description"
+          [ngClass]="{
+            'input-error':
+              createContestForm.controls['description'].invalid &&
+              createContestForm.controls['description'].touched
+          }"
         ></textarea>
+        <div
+          *ngIf="
+createContestForm.controls['description'].errors?.['required'] &&
+createContestForm.controls['description'].touched
+"
+          class="alert-error"
+        >
+          Description is required!
+        </div>
         <button class="add-album" type="submit">Submit</button>
       </div>
     </fieldset>

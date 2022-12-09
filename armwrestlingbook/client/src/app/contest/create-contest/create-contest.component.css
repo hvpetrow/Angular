@@ -45,13 +45,13 @@ textarea {
   font-size: 1.2em;
   line-height: 1;
   padding: 0.3em 0.4em;
-  margin: 0 0.5em 1em 0;
+  margin: 1em 0.5em 0 0;
 }
 
 input[type="text"]::-webkit-input-placeholder,
 input[type="number"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #64676b;
+  color: #a8b0b9;
   line-height: 1.2;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -72,7 +72,7 @@ textarea:focus {
 textarea {
   height: 100px;
   font-family: "Lato";
-  color: #aab2bd;
+  color: #fff;
 }
 
 .add-album,
@@ -121,6 +121,17 @@ textarea {
   width: 0px;
   height: 0px;
   overflow: hidden;
+}
+
+.alert-error {
+  color: #f33;
+  margin-bottom: 1em;
+  margin-top: 0.3em;
+  font-weight: bold;
+}
+
+.input-error {
+  border-color: #f33;
 }
 
 * {

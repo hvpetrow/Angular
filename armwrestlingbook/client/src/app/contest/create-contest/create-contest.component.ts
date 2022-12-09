@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthService } from 'src/app/services/auth.service';
+import { ContestService } from 'src/app/services/contest.service';
 
 @Component({
   selector: 'app-create-contest',
@@ -7,9 +12,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateContestComponent implements OnInit {
 
-  constructor() { }
+  createContestForm!: FormGroup;
+  user$ = this.authService.currentUser$;
+  userId!: any;
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private contestService: ContestService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
+    this.user$.subscribe((user) => {
+      this.userId = user?.uid
+    });
+
+    this.createContestForm = this.fb.group({
+      title: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      place: new FormControl('', [Validators.required]),
+      photoUrl: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+    });
   }
 
+  async onSubmit() {
+    console.log(this.createContestForm.value);
+
+    const newContest = {
+      ...this.createContestForm.value,
+      creator: this.userId
+    }
+
+    console.log(newContest);
+
+    try {
+      const response = await this.contestService.addContest(newContest);
+      console.log(response);
+
+    } catch (error) {
+      this.toast.error('Something went wrong!')
+    }
+
+    this.toast.success('Contest added successfully');
+    this.router.navigate(['/']);
+
+    // this.contestService.addContest(email)
+    //   .then(this.toast.success({
+    //     success: 'Logged successfully',
+    //     loading: 'Logging in...',
+    //     error: 'Wrong email or'
+    //   })
+    //   ).subscribe(() => {
+    //     this.router.navigate(['/']);
+    //   });
+  }
 }

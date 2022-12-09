@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   constructor(public authService: AuthService, private contestService: ContestService, private router: Router) { }
   newContest: Contest = {
     creator: '',
-    createdAt: '',
     title: 'ArmFight5',
     date: '18.12.2022',
     place: '',

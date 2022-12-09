@@ -1,6 +1,5 @@
 export interface Contest {
     creator: string,
-    createdAt: string,
     title: string,
     date: string,
     place: string,
