@@ -98,6 +98,10 @@ textarea {
   margin-top: 20px;
 }
 
+.add-album:hover {
+  background-image: linear-gradient(315deg, #6eb9b6 10%, #214863 74%);
+}
+
 .createPage,
 .editPage {
   font-family: "Lato";
