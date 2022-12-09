@@ -2,7 +2,6 @@
 <ng-container
   *ngIf="authService.currentUser$ | async as user; else entranceButtons"
 >
-  <button (click)="onCreate()">Create Test Contest</button>
 </ng-container>
 
 <ng-template #entranceButtons>

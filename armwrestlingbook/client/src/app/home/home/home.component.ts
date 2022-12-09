@@ -37,13 +37,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  async onCreate() {
-    const res = await this.contestService.addContest(this.newContest);
-    console.log('log from createContest');
-    console.log(res);
+  // async onCreate() {
+  //   const res = await this.contestService.addContest(this.newContest);
+  //   console.log('log from createContest');
+  //   console.log(res);
 
-  }
-
-
-
+  // }
 }

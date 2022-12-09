@@ -120,7 +120,13 @@ createContestForm.controls['description'].touched
         >
           Description is required!
         </div>
-        <button class="add-album" type="submit">Submit</button>
+        <button
+          [disabled]="createContestForm.invalid"
+          class="add-album"
+          type="submit"
+        >
+          Submit
+        </button>
       </div>
     </fieldset>
   </form>

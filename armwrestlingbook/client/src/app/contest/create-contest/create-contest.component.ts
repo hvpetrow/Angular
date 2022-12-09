@@ -52,15 +52,5 @@ export class CreateContestComponent implements OnInit {
 
     this.toast.success('Contest added successfully');
     this.router.navigate(['/']);
-
-    // this.contestService.addContest(email)
-    //   .then(this.toast.success({
-    //     success: 'Logged successfully',
-    //     loading: 'Logging in...',
-    //     error: 'Wrong email or'
-    //   })
-    //   ).subscribe(() => {
-    //     this.router.navigate(['/']);
-    //   });
   }
 }
