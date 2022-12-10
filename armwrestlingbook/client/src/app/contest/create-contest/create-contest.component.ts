@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { serverTimestamp } from 'firebase/firestore';
 import { AuthService } from 'src/app/services/auth.service';
-import { ContestService } from 'src/app/services/contest.service';
+import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
   selector: 'app-create-contest',
@@ -16,7 +17,7 @@ export class CreateContestComponent implements OnInit {
   user$ = this.authService.currentUser$;
   userId!: any;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private contestService: ContestService, private router: Router, private toast: HotToastService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {
@@ -25,8 +26,6 @@ export class CreateContestComponent implements OnInit {
 
     this.createContestForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
-      place: new FormControl('', [Validators.required]),
       photoUrl: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
     });
@@ -37,13 +36,16 @@ export class CreateContestComponent implements OnInit {
 
     const newContest = {
       ...this.createContestForm.value,
-      creator: this.userId
+      creator: this.userId,
+      comments: [],
+      likes: [],
+      createdAt: serverTimestamp()
     }
 
     console.log(newContest);
 
     try {
-      const response = await this.contestService.addContest(newContest);
+      const response = await this.topicService.addTopic(newContest);
       console.log(response);
 
     } catch (error) {

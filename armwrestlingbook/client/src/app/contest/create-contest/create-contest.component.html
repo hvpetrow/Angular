@@ -27,54 +27,6 @@
           Title is required!
         </div>
 
-        <label for="date" class="vhide">Date</label>
-        <input
-          formControlName="date"
-          id="date"
-          name="date"
-          class="name"
-          type="text"
-          placeholder="dd/mm/yyyy"
-          [ngClass]="{
-            'input-error':
-              createContestForm.controls['date'].invalid &&
-              createContestForm.controls['date'].touched
-          }"
-        />
-        <div
-          *ngIf="
-  createContestForm.controls['date'].errors?.['required'] &&
-  createContestForm.controls['date'].touched
-"
-          class="alert-error"
-        >
-          Date is required!
-        </div>
-
-        <label for="place" class="vhide">Place</label>
-        <input
-          formControlName="place"
-          id="place"
-          name="place"
-          class="name"
-          type="text"
-          placeholder="Sofia,Bulgaria"
-          [ngClass]="{
-            'input-error':
-              createContestForm.controls['place'].invalid &&
-              createContestForm.controls['place'].touched
-          }"
-        />
-        <div
-          *ngIf="
-  createContestForm.controls['place'].errors?.['required'] &&
-  createContestForm.controls['place'].touched
-"
-          class="alert-error"
-        >
-          Place is required!
-        </div>
-
         <label for="photoUrl" class="vhide">PhotoUrl</label>
         <input
           formControlName="photoUrl"
