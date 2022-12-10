@@ -13,10 +13,12 @@ export class HomeComponent implements OnInit {
 
   user$ = this.authService.currentUser$;
   userId!: any;
+  topics: Topic[] = [];
 
   constructor(public authService: AuthService, private topicService: TopicService, private router: Router) { }
   newTopic: Topic = {
     creator: '',
+    id: '',
     title: 'ArmFight5',
     photoUrl: 'https://yt3.ggpht.com/ytc/AMLnZu976YbNvm7xB2qtLsf-MDzp7mZ0GbifNywgnlLt=s900-c-k-c0x00ffffff-no-rj',
     comments: [],
@@ -32,8 +34,8 @@ export class HomeComponent implements OnInit {
     });
 
     this.topicService.getAllTopics().subscribe(topics => {
-      console.log('log from getAllTopics');
-      console.log(topics);
+      this.topics = topics;
+      console.log(this.topics);
     });
   }
 

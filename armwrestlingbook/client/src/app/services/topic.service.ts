@@ -10,8 +10,9 @@ import { Topic } from '../interfaces/topic';
   providedIn: 'root'
 })
 export class TopicService {
-  constructor(private firestore: Firestore) { }
   topicRef = collection(this.firestore, 'topics');
+
+  constructor(private firestore: Firestore) { }
 
   addTopic(newTopic: Topic) {
     return addDoc(this.topicRef, newTopic);
@@ -19,7 +20,7 @@ export class TopicService {
   }
 
   getAllTopics(): Observable<Topic[]> {
-    return collectionData(this.topicRef) as Observable<Topic[]>;
+    return collectionData(this.topicRef, { idField: 'id' }) as Observable<Topic[]>;
   }
 
   // deletetopic(topic: topic) {

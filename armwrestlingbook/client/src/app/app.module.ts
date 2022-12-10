@@ -18,6 +18,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { ContestModule } from './contest/contest.module';
+import { TopicCardComponent } from './home/topic-card/topic-card.component';
 
 @NgModule({
   declarations: [

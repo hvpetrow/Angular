@@ -7,7 +7,12 @@
 
 <section id="top-houses">
   <h1>LATEST TOPICS...</h1>
-  <div class="houses">
+  <div class="container">
+    <ul class="topics">
+      <li *ngFor="let topic of topics">
+        <app-topic-card [topic]="topic"></app-topic-card>
+      </li>
+    </ul>
     <!-- {{#if realEstates}}
           {{#each realEstates}}
               {{> realEstateCard}}
