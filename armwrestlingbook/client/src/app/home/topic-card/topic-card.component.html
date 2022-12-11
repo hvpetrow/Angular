@@ -4,7 +4,7 @@
       <div class="content">
         <h3>{{ topic.title }}</h3>
         <p>
-          {{ topic.description }}
+          {{ topic.createdAt | date : "MM/dd//yy" }}
         </p>
         <a routerLink="/details/{{ topic.id }}">Details</a>
       </div>

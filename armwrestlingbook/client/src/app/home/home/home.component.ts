@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Date javaDate = firebaseTimestampObject.toDate()
+
   // async onCreate() {
   //   const res = await this.TopicService.addTopic(this.newTopic);
   //   console.log('log from createTopic');

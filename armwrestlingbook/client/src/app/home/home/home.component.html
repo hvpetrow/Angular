@@ -6,23 +6,17 @@
 </div>
 
 <section id="latest-topics">
-  <h1>LATEST TOPICS...</h1>
+  <h1 class="topics-represent">LATEST TOPICS...</h1>
   <div class="container">
-    <ul class="topics">
+    <ul *ngIf="topics.length > 0" class="topics">
       <li class="topic" *ngFor="let topic of topics">
         <app-topic-card [topic]="topic"></app-topic-card>
       </li>
     </ul>
-    <!-- {{#if realEstates}}
-          {{#each realEstates}}
-              {{> realEstateCa rd}}
-          {{/each}}
-      
-      {{else}} -->
-    <div class="no-data-container">
+
+    <div *ngIf="topics.length === 0" class="no-data-container">
       <p class="no-data">There are no housing offers found...</p>
     </div>
-    <!-- {{/if}} -->
   </div>
 </section>
 <h1 *ngIf="user$ | async as user">Welcome to our app, {{ user.email }}</h1>
