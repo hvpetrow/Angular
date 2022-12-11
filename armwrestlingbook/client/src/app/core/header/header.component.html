@@ -2,8 +2,8 @@
   <ul>
     <li><a routerLink="/">Home</a></li>
     <li *ngIf="isLoggedIn$ | async"><a routerLink="/posts">Posts</a></li>
-    <li *ngIf="isLoggedIn$ | async"><a routerLink="/my-posts">My Posts</a></li>
-    <li *ngIf="isLoggedIn$ | async"><a routerLink="/add-post">Add Contest</a></li>
+    <li *ngIf="isLoggedIn$ | async"><a routerLink="/my-posts">My Topics</a></li>
+    <li *ngIf="isLoggedIn$ | async"><a routerLink="/add-post">Add Topic</a></li>
     <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">Login</a></li>
     <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="/register">Register</a>
