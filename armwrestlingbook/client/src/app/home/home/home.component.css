@@ -48,17 +48,17 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* body {
+#latest-topics {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 100vh;
-  background: #232427;
-} */
+}
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -66,22 +66,12 @@
   margin: 40px 0;
 }
 
-/* #all-listings {
+.topics {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-#all-listings > .card {
-  margin-left: 6em;
+.topic {
+  list-style: none;
 }
-
-#all-listings > h1 {
-  font-size: 53px;
-  font-weight: 700;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  width: 100%;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-  color: rgba(249, 249, 250, 0.85);
-} */

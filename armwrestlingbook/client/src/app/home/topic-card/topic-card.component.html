@@ -2,13 +2,11 @@
   <div class="card">
     <div class="box">
       <div class="content">
-        <h2>01</h2>
-        <h3>Card One</h3>
+        <h3>{{ topic.title }}</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam
-          velit? Iure nemo labore inventore?
+          {{ topic.description }}
         </p>
-        <a href="#">Read More</a>
+        <a routerLink="/details/{{ topic.id }}">Details</a>
       </div>
     </div>
   </div>

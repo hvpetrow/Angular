@@ -26,8 +26,8 @@ body {
 
 .container .card {
   position: relative;
-  min-width: 320px;
-  height: 440px;
+  min-width: 500px;
+  height: 400px;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
@@ -80,6 +80,9 @@ body {
 .container .card .box .content {
   padding: 20px;
   text-align: center;
+  width: 100%;
+  overflow: visible;
+  overflow-wrap: break-word;
 }
 
 .container .card .box .content h2 {
