@@ -19,6 +19,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { ContestModule } from './contest/contest.module';
 import { TopicCardComponent } from './home/topic-card/topic-card.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
