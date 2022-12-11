@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, doc, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { getAll } from 'firebase/remote-config';
 import { Observable } from 'rxjs';
 import { Topic } from '../interfaces/topic';
@@ -21,6 +21,14 @@ export class TopicService {
 
   getAllTopics(): Observable<Topic[]> {
     return collectionData(this.topicRef, { idField: 'id' }) as Observable<Topic[]>;
+  }
+
+  deleteTopic(id: string) {
+    return deleteDoc(doc(this.firestore, `topics/${id}`));
+  }
+
+  updateTopic(updatedTopic: any, oldTopicId: string) {
+    return updateDoc(doc(this.firestore, `topics/${oldTopicId}`), updatedTopic);
   }
 
   // deletetopic(topic: topic) {
