@@ -2,7 +2,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
-<div *ngIf="topic" id="container">
+<div *ngIf="!!topic; else loader" id="container">
   <div class="product-details">
     <h1>{{ topic.title }}</h1>
     <p class="information">{{ topic.description }}</p>
@@ -26,7 +26,7 @@
   </div>
 
   <div class="product-image">
-    <img src="{{ topic.photoUrl }}" alt="" />
+    <img src="{{ topic.photoUrl }}" alt="topic_Photo" />
 
     <div class="info">
       <h2>Description</h2>
@@ -39,3 +39,10 @@
     </div>
   </div>
 </div>
+
+<ng-template #loader>
+  <div class="ring">
+    Loading
+    <span></span>
+  </div>
+</ng-template>
