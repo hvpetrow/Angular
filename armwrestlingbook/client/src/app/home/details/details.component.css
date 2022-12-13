@@ -226,7 +226,7 @@ body {
   border-radius: 50%;
   animation: animateC 2s linear infinite;
 }
-span {
+.ring_span {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -237,7 +237,8 @@ span {
   transform-origin: left;
   animation: animate 2s linear infinite;
 }
-span:before {
+
+.ring_span:before {
   content: "";
   position: absolute;
   width: 16px;
