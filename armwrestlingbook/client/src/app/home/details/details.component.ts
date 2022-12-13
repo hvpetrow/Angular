@@ -94,13 +94,17 @@ export class DetailsComponent implements OnInit {
   }
 
   async deleteHandler() {
-    try {
-      await this.topicService.deleteTopic(this.topicId);
-    } catch (error) {
-      this.toast.error('Something went wrong!')
-    }
+    const answer = confirm('Are you sure you want to delete it?')
 
-    this.toast.success('Contest added successfully');
-    this.router.navigate(['/']);
+    if (answer) {
+      try {
+        await this.topicService.deleteTopic(this.topicId);
+      } catch (error) {
+        this.toast.error('Something went wrong!')
+      }
+
+      this.toast.success('Topic deleted successfully');
+      this.router.navigate(['/']);
+    }
   }
 }
