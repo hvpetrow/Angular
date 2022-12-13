@@ -70,8 +70,6 @@ export class EditTopicComponent implements OnInit {
       console.error(error);
     }
 
-    this.router.navigate([`/topics/${this.topicId}`]);
-
+    this.router.navigate([`/`]);
   }
-
 }

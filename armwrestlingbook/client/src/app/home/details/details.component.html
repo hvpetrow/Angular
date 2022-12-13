@@ -14,9 +14,11 @@
       <button *ngIf="isParticipant" (click)="cancelLikeHandler()" class="btn">
         <span class="unlike">Unlike</span>
       </button>
-      <button class="btn">
-        <span class="buy">Edit</span>
-      </button>
+      <a routerLink="/edit/{{ topicId }}">
+        <button class="btn">
+          <span class="buy">Edit</span>
+        </button>
+      </a>
       <button class="btn">
         <span class="delete" (click)="(deleteHandler)">Delete</span>
       </button>
