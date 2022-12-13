@@ -80,7 +80,7 @@ export class DetailsComponent implements OnInit {
 
     try {
       await updateDoc(currentCauseRef, {
-        participants: arrayRemove(this.userId)
+        likes: arrayRemove(this.userId)
       });
       this.toast.success('You have unliked the topic!');
     } catch (error) {
