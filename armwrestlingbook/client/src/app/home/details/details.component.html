@@ -8,6 +8,12 @@
     <p class="information">{{ topic.description }}</p>
 
     <div class="control">
+      <button *ngIf="!isParticipant" (click)="likeHandler()" class="btn">
+        <span class="like">Like</span>
+      </button>
+      <button *ngIf="isParticipant" (click)="cancelLikeHandler()" class="btn">
+        <span class="unlike">Unlike</span>
+      </button>
       <button class="btn">
         <span class="buy">Edit</span>
       </button>

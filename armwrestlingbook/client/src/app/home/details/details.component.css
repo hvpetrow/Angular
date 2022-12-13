@@ -105,6 +105,30 @@
   font-weight: bolder;
 }
 
+.btn .like {
+  background: #cbc3e3;
+  z-index: 3;
+  font-weight: bolder;
+}
+
+.btn .unlike {
+  background: #ffc1cc;
+  z-index: 3;
+  font-weight: bolder;
+}
+
+.btn .unlike:hover {
+  background: #fc6c85;
+  z-index: 3;
+  font-weight: bolder;
+}
+
+.btn .like:hover {
+  background: #bf40bf;
+  z-index: 3;
+  font-weight: bolder;
+}
+
 .btn .delete:hover {
   background: #d2042d;
 }

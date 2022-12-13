@@ -18,14 +18,10 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CoreModule } from './core/core.module';
 import { ContestModule } from './contest/contest.module';
-import { TopicCardComponent } from './home/topic-card/topic-card.component';
-import { SharedModule } from './shared/shared.module';
-import { DetailsComponent } from './home/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailsComponent,
   ],
   imports: [
     BrowserModule,
