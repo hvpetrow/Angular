@@ -16,12 +16,14 @@ export class CreateContestComponent implements OnInit {
   createContestForm!: FormGroup;
   user$ = this.authService.currentUser$;
   userId!: any;
+  userEmail!: any;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {
-      this.userId = user?.uid
+      this.userId = user?.uid;
+      this.userEmail = user?.email;
     });
 
     this.createContestForm = this.fb.group({
@@ -39,6 +41,7 @@ export class CreateContestComponent implements OnInit {
       creator: this.userId,
       comments: [],
       likes: [],
+      creatorEmail: this.userEmail,
       createdAt: serverTimestamp()
     }
 
