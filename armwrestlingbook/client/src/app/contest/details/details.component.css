@@ -270,6 +270,7 @@ body {
   transition: all 0.35s;
   cursor: pointer;
   margin: 0 auto;
+  border-radius: 5px;
 }
 
 .comments_btn span {
@@ -285,7 +286,7 @@ body {
   width: 0;
   height: 100%;
   background: #383838;
-  color: #fff;
+  color: #333;
   transition: all 0.35s;
 }
 

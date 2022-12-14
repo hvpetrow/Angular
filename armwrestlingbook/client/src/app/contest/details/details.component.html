@@ -49,10 +49,10 @@
     <span> Comments({{ objectKeys(comments).length }})</span>
   </button>
 
-  <section *ngIf="isShowedComments" id="comments">
+  <section id="comments">
     <div class="comments-info">
       <ul class="noBullet">
-        <ng-container *ngIf="comments">
+        <ng-container *ngIf="isShowedComments">
           <app-comments
             *ngFor="let comment of objectKeys(comments)"
             [user]="user$"
