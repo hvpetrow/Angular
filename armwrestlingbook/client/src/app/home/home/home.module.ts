@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { TopicCardComponent } from '../topic-card/topic-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsComponent } from '../details/details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { DetailsComponent } from '../details/details.component';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
