@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   userId!: any;
   currentUserEmail!: any;
   hasLiked!: Boolean;
-  isOwner!: Boolean;
+  isOwner!: boolean;
   creatorEmail!: string;
   comments!: any;
   objectKeys = Object.keys;

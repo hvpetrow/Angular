@@ -4,7 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { CreateContestComponent } from './contest/create-contest/create-contest.component';
 import { EditTopicComponent } from './contest/edit-topic/edit-topic.component';
-import { DetailsComponent } from './home/details/details.component';
+import { DetailsComponent } from './contest/details/details.component';
 import { HomeComponent } from './home/home/home.component';
 
 const routes: Routes = [

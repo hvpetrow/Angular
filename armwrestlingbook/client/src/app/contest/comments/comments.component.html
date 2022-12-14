@@ -4,17 +4,12 @@
   </div>
   <div class="comment-content">
     <div class="comment">
-      <!-- <button class="like-btn">Like</button> -->
-      <p class="likes-no">Likes: 1</p>
-      <ng-container *ngIf="(user | async) && !isOwner">
-        <button class="unlike-btn">Unlike</button>
-      </ng-container>
       <p>
         {{ comments[comment].content }}
       </p>
-      <!-- <span class="timestamp">{{
-        comments[comment].createdAt | dateTransform | timeAgo
-      }}</span> -->
+      <span class="timestamp">{{
+        comments[comment].createdAt | dateTransform | date : "medium"
+      }}</span>
     </div>
   </div>
 </li>

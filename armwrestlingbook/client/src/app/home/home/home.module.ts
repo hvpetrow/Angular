@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { TopicCardComponent } from '../topic-card/topic-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { DetailsComponent } from '../details/details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HomeComponent,
     TopicCardComponent,
-    DetailsComponent
   ],
   imports: [
     CommonModule,
