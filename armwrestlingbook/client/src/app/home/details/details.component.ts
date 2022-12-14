@@ -19,7 +19,9 @@ export class DetailsComponent implements OnInit {
   topic!: any;
   user$ = this.authService.currentUser$;
   userId!: any;
-  isParticipant!: Boolean;
+  hasLiked!: Boolean;
+  isOwner!: Boolean;
+  creatorEmail!: string;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
@@ -38,6 +40,8 @@ export class DetailsComponent implements OnInit {
         .getOneTopic(this.topicId)
         .then((data) => {
           this.topic = data.data();
+          this.isOwner = this.topic.ownerId == this.userId;
+          this.creatorEmail = this.topic.creatorEmail;
           console.log(this.topic);
         });
     }
@@ -48,8 +52,8 @@ export class DetailsComponent implements OnInit {
       console.log(this.userId);
 
 
-      this.isParticipant = this.topic?.likes?.find((like: string | undefined) => like === this.userId);
-      console.log('isParticpant:', this.isParticipant);
+      this.hasLiked = this.topic?.likes?.find((like: string | undefined) => like === this.userId);
+      console.log('isParticpant:', this.hasLiked);
       console.log('likes:', this.topic?.likes);
     }, 400);
   }
@@ -69,7 +73,7 @@ export class DetailsComponent implements OnInit {
       console.log(error);
     }
 
-    this.isParticipant = true;
+    this.hasLiked = true;
     console.log('userId:', this.userId);
     console.log('likes:', this.topic.likes);
 
@@ -87,7 +91,7 @@ export class DetailsComponent implements OnInit {
       console.log(error);
     }
 
-    this.isParticipant = false;
+    this.hasLiked = false;
 
     console.log('likes:', this.topic.likes);
 
