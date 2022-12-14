@@ -40,7 +40,7 @@ export class DetailsComponent implements OnInit {
         .getOneTopic(this.topicId)
         .then((data) => {
           this.topic = data.data();
-          this.isOwner = this.topic.ownerId == this.userId;
+          this.isOwner = this.topic.creator == this.userId;
           this.creatorEmail = this.topic.creatorEmail;
           console.log(this.topic);
         });
