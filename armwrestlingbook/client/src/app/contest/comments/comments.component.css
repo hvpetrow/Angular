@@ -1,0 +1,92 @@
+.comment-content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment {
+  width: 670px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, 0.342);
+  color: white;
+  outline: none;
+  border-radius: 35px;
+  word-wrap: break-word;
+  padding: 10px 10px 5px 10px;
+}
+
+.owner {
+  /* padding: 10px;
+    border: 1px solid rgba(10, 180, 180, 1);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0.342);
+    color: white;
+    outline: none;
+    border-radius: 50px; */
+  text-align: center;
+}
+
+.owner-info {
+  padding: 10px;
+  border: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgb(9, 146, 146);
+  color: white;
+  outline: none;
+  border-radius: 25px;
+  width: 140px;
+  word-wrap: break-word;
+  margin-top: 45px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+
+.timestamp {
+  float: left;
+  margin-top: 15px;
+  margin-left: 22px;
+  font-size: 12px;
+  /* background:rgb(9, 146, 146); */
+  color: rgb(9, 146, 146);
+}
+
+.like-btn,
+.unlike-btn {
+  float: right;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-bottom: 7px;
+  margin-left: 670px;
+
+  padding: 6px;
+  border: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgb(9, 146, 146);
+  color: white;
+  outline: none;
+  border-radius: 10px;
+}
+
+.unlike-btn {
+  color: white;
+  background: rgb(195, 5, 81);
+}
+
+.likes-no {
+  float: right;
+  margin-left: 670px;
+  font-size: 12px;
+  color: rgb(9, 146, 146);
+  width: 65px;
+  margin-bottom: 3px;
+}

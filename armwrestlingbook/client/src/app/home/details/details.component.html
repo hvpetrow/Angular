@@ -29,10 +29,13 @@
     <img src="{{ topic.photoUrl }}" alt="topic_Photo" />
 
     <div class="info">
-      <h2>Description</h2>
+      <h2>Additional Info</h2>
       <ul>
-        <li><strong>Height : </strong>5 Ft</li>
-        <li><strong>Shade : </strong>Olive green</li>
+        <li><strong>Created by:</strong>{{ creator }}</li>
+        <li>
+          <strong>>Date:</strong
+          >{{ topic.createdAt | transformDate | date : "dd MMM yyyy" }}
+        </li>
         <li><strong>Decoration: </strong>balls and bells</li>
         <li><strong>Material: </strong>Eco-Friendly</li>
       </ul>

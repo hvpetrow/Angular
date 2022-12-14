@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditTopicComponent } from './edit-topic/edit-topic.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
 @NgModule({
   declarations: [
     CreateContestComponent,
-    EditTopicComponent
+    EditTopicComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,
