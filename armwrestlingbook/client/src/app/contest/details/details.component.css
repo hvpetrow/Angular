@@ -245,6 +245,57 @@ body {
   right: -8px;
   box-shadow: 0 0 20px #b9ad05;
 }
+/* comments-btn */
+.wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.comments_btn {
+  display: block;
+  width: 250px;
+  height: 60px;
+  line-height: 50px;
+  font-size: 30px;
+  font-family: serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  border: 3px solid 383838;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.comments_btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.comments_btn:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #383838;
+  color: #fff;
+  transition: all 0.35s;
+}
+
+.comments_btn:hover {
+  color: #fff;
+}
+
+.comments_btn:hover:after {
+  width: 100%;
+}
 
 /* comments */
 

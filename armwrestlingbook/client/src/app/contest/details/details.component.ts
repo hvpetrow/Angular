@@ -28,6 +28,7 @@ export class DetailsComponent implements OnInit {
   objectKeys = Object.keys;
   commentsArr = [];
   commentCount: any;
+  isShowedComments: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
@@ -149,5 +150,9 @@ export class DetailsComponent implements OnInit {
 
     console.log(this.commentsArr);
 
+  }
+
+  showComments() {
+    this.isShowedComments = true;
   }
 }
