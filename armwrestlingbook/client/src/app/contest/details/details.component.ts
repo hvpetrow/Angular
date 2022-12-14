@@ -26,6 +26,8 @@ export class DetailsComponent implements OnInit {
   creatorEmail!: string;
   comments!: any;
   objectKeys = Object.keys;
+  commentsArr = [];
+  commentCount: any;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
@@ -143,5 +145,9 @@ export class DetailsComponent implements OnInit {
       this.comments = await this.topicService.getCommentsByTopicId(this.topicId);
       console.log(this.comments);
     }, 10);
+
+
+    console.log(this.commentsArr);
+
   }
 }

@@ -254,6 +254,11 @@ body {
   text-align: center;
 }
 
+.comments_h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
 .comments-info {
   color: #fff;
   height: 200px auto;

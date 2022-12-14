@@ -45,6 +45,9 @@
     </div>
   </div>
 
+  <h2 *ngIf="comments" class="comments_h2">
+    Comments({{ objectKeys(comments).length }})
+  </h2>
   <section id="comments">
     <div class="comments-info">
       <ul class="noBullet">
