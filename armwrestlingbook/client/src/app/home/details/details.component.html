@@ -6,7 +6,6 @@
   <div class="product-details">
     <h1>{{ topic.title }}</h1>
     <p class="information">{{ topic.description }}</p>
-
     <div class="control">
       <button *ngIf="!hasLiked" (click)="likeHandler()" class="btn">
         <span class="like">Like</span>
@@ -14,6 +13,9 @@
       <button *ngIf="hasLiked" (click)="cancelLikeHandler()" class="btn">
         <span class="unlike">Unlike</span>
       </button>
+    </div>
+
+    <div *ngIf="isOwner" class="control">
       <a routerLink="/edit/{{ topicId }}">
         <button class="btn">
           <span class="buy">Edit</span>
@@ -33,13 +35,73 @@
       <ul>
         <li><strong>Created by: </strong>{{ creatorEmail }}</li>
         <li>
-          <strong>Date: </strong
+          <strong>Published: </strong
           >{{ topic.createdAt | dateTransform | date : "fullDate" }}
         </li>
       </ul>
     </div>
   </div>
 </div>
+
+<section id="comments">
+  <div class="comments-info">
+    <ul class="noBullet">
+      <ng-container *ngIf="comments">
+        <app-comments
+          *ngFor="let comment of objectKeys(comments)"
+          [user]="currentUser$"
+          [comments]="comments"
+          [comment]="comment"
+          [isOwner]="isOwner"
+        ></app-comments>
+      </ng-container>
+
+      <ng-container *ngIf="currentUser$ | async">
+        <li>
+          <textarea
+            id="content"
+            class="inputFields"
+            name="content"
+            placeholder="..."
+            #comment="ngModel"
+            type="text"
+            name="comment"
+            ngModel
+            required
+            minlength="2"
+          ></textarea>
+        </li>
+
+        <li id="center-btn">
+          <button (click)="postComment(comment)" id="post-btn">
+            Post Comment
+          </button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <!-- <ng-container *ngIf="showErrorInControl('content')">
+        <p *ngIf="newTopicForm.controls['content'].errors?.['required']" class="alert-error">
+            Content is required!
+        </p>
+        <p *ngIf="newTopicForm.controls['content'].errors?.['minlength']" class="alert-error">
+            Content must be at least 10 characters long!
+        </p>
+    </ng-container> -->
+  <!-- <div class="vote-info">
+        <div class="card_left">
+            <div class="card_datails">
+                <h1>Votes</h1>
+                <div class="card_vote">
+                    <p class="PV">Total rating of votes: </p>
+                </div>
+                <p class="disc">People who voted for the post - </p>
+                <p class="disc">People who voted for the post - No one has voted yet.</p>
+            </div>
+        </div>
+    </div> -->
+</section>
 
 <ng-template #loader>
   <div class="ring">

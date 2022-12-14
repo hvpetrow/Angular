@@ -1,12 +1,13 @@
 import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { arrayRemove, arrayUnion, collection, doc, updateDoc } from 'firebase/firestore';
+import { arrayRemove, arrayUnion, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { Firestore } from '@angular/fire/firestore';
 
 import { Topic } from 'src/app/interfaces/topic';
 import { AuthService } from 'src/app/services/auth.service';
 import { TopicService } from 'src/app/services/topic.service';
+import { NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -19,22 +20,25 @@ export class DetailsComponent implements OnInit {
   topic!: any;
   user$ = this.authService.currentUser$;
   userId!: any;
+  currentUserEmail!: any;
   hasLiked!: Boolean;
   isOwner!: Boolean;
   creatorEmail!: string;
+  comments!: any;
+  objectKeys = Object.keys;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {
-      this.userId = user?.uid
+      this.userId = user?.uid;
+      this.currentUserEmail = user?.email;
     });
     console.log('userId:', this.userId);
 
 
     this.activatedRoute.params.subscribe(params => {
       this.topicId = params['topicId'];
-      console.log(this.topicId);
 
       this.topicService
         .getOneTopic(this.topicId)
@@ -44,8 +48,9 @@ export class DetailsComponent implements OnInit {
           this.creatorEmail = this.topic.creatorEmail;
           console.log(this.topic);
         });
-    }
-    );
+    });
+
+    this.getComments();
 
     setTimeout(() => {
       console.log(this.topic);
@@ -110,5 +115,33 @@ export class DetailsComponent implements OnInit {
       this.toast.success('Topic deleted successfully');
       this.router.navigate(['/']);
     }
+  }
+
+  postComment(comment: NgControl) {
+    const newComment = {
+      content: comment.value,
+      createdAt: serverTimestamp(),
+      ownerId: this.userId,
+      ownerEmail: this.currentUserEmail,
+      topicId: this.topicId
+    }
+
+    try {
+      const response = this.topicService.addComment(newComment);
+      comment.reset();
+      console.log(response);
+      setTimeout(() => {
+        this.getComments();
+      }, 300);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getComments() {
+    setTimeout(async () => {
+      this.comments = await this.topicService.getCommentsByTopicId(this.topicId);
+      console.log(this.comments);
+    }, 10);
   }
 }
