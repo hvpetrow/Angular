@@ -15,17 +15,8 @@
     </ul>
 
     <div *ngIf="topics.length === 0" class="no-data-container">
-      <p class="no-data">There are no housing offers found...</p>
+      <p class="no-data">There are not published topics...</p>
     </div>
   </div>
 </section>
 <h1 *ngIf="user$ | async as user">Welcome to our app, {{ user.email }}</h1>
-<ng-container
-  *ngIf="authService.currentUser$ | async as user; else entranceButtons"
->
-</ng-container>
-
-<ng-template #entranceButtons>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-</ng-template>

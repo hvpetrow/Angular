@@ -1,14 +1,14 @@
 import { RouterModule, Routes } from "@angular/router";
 import { AuthenticationGuard } from "../core/guards/authentication.guard";
 import { LoginComponent } from "./login/login.component";
-import { MyPostsComponent } from "./my-posts/my-posts.component";
+import { MyTopicsComponent } from "./my-topics/my-topics.component";
 import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
     {
         path: 'my-topics',
         canActivate: [AuthenticationGuard],
-        component: MyPostsComponent
+        component: MyTopicsComponent
     },
     {
         path: 'login',

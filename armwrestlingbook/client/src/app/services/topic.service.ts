@@ -40,6 +40,18 @@ export class TopicService {
     return res;
   }
 
+  async getTopicsByOwnerId(ownerId: any) {
+    const result = {} as any;
+    const q = query(this.topicRef, where("ownerId", "==", ownerId));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      const id = doc.id;
+      result[id] = doc.data();
+    });
+
+    return result;
+  }
+
   async getCommentsByTopicId(topicId: string) {
     const result = {} as any;
     const q = query(this.commentRef, where("topicId", "==", topicId), orderBy('createdAt', 'desc'));

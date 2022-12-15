@@ -4,8 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MyPostsComponent } from './my-posts/my-posts.component';
 import { AuthRoutingModule } from './auth-routing.module';
+import { MyTopicsComponent } from './my-topics/my-topics.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,12 +14,13 @@ import { AuthRoutingModule } from './auth-routing.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    MyPostsComponent
+    MyTopicsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    SharedModule,
     AuthRoutingModule
   ]
 })
