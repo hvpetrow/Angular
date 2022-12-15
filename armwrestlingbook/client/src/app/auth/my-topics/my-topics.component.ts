@@ -29,7 +29,9 @@ export class MyTopicsComponent implements OnInit {
   async getMyTopics() {
     setTimeout(async () => {
       this.topics = await this.topicService.getTopicsByOwnerId(this.userId);
-    }, 50);
+      console.log(this.topics);
+
+    }, 500);
   }
 
 }
