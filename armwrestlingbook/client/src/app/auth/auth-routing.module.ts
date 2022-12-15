@@ -5,13 +5,8 @@ import { MyPostsComponent } from "./my-posts/my-posts.component";
 import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
-    //     {
-    //       path: '',
-    //       pathMatch: 'full',
-    //       component: AllTopicsComponent
-    //   },
     {
-        path: 'my-posts',
+        path: 'my-topics',
         canActivate: [AuthenticationGuard],
         component: MyPostsComponent
     },
