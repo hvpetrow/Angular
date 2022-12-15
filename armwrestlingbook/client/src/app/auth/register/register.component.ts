@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
       .pipe(this.toast.observe({
         success: 'Registered successfully',
         loading: 'Logging in...',
-        error: 'Error...'
+        error: 'Email is already taken!'
       })
       ).subscribe(() => {
         this.router.navigate(['/']);
