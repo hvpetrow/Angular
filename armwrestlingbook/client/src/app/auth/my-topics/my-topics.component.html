@@ -1,9 +1,6 @@
 <section id="latest-topics" *ngIf="topics; else loader">
   <h1 class="topics-represent">MY TOPICS...</h1>
-  <div
-    *ngIf="objectKeys(topics).length > 0; else noTopic"
-    class="cards-container"
-  >
+  <div *ngIf="objectKeys(topics).length > 0" class="cards-container">
     <ul class="topics">
       <li class="topic" *ngFor="let topic of objectKeys(topics)">
         <div class="container">
@@ -25,11 +22,9 @@
     </ul>
   </div>
 
-  <ng-template #noTopic>
-    <div *ngIf="topics.length === 0" class="no-data-container">
-      <p class="no-data">There are not published topics...</p>
-    </div>
-  </ng-template>
+  <div *ngIf="objectKeys(topics).length === 0" class="no-data-container">
+    <p class="no-data">There are not published topics...</p>
+  </div>
 </section>
 <ng-template #loader>
   <div class="ring">
