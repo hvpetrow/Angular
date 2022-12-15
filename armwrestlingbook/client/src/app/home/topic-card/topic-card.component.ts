@@ -8,7 +8,7 @@ import { Topic } from 'src/app/interfaces/topic';
 })
 export class TopicCardComponent implements OnInit {
 
-  @Input() topic!: Topic
+  @Input() topic!: any;
 
   constructor() { }
 

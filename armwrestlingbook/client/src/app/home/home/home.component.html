@@ -5,16 +5,16 @@
   </div>
 </div>
 
-<section id="latest-topics">
+<section *ngIf="topics" id="latest-topics">
   <h1 class="topics-represent">LATEST TOPICS...</h1>
   <div class="cards-container">
-    <ul *ngIf="topics.length > 0" class="topics">
-      <li class="topic" *ngFor="let topic of topics">
-        <app-topic-card [topic]="topic"></app-topic-card>
+    <ul *ngIf="objectKeys(topics).length > 0" class="topics">
+      <li class="topic" *ngFor="let topic of objectKeys(topics)">
+        <app-topic-card [topic]="topics[topic]"></app-topic-card>
       </li>
     </ul>
 
-    <div *ngIf="topics.length === 0" class="no-data-container">
+    <div *ngIf="objectKeys(topics).length === 0" class="no-data-container">
       <p class="no-data">There are not published topics...</p>
     </div>
   </div>

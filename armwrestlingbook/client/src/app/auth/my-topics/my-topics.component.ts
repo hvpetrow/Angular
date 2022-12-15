@@ -23,15 +23,12 @@ export class MyTopicsComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser$.subscribe(user => this.userId = user?.uid);
     this.getMyTopics();
-
   }
 
   async getMyTopics() {
     setTimeout(async () => {
       this.topics = await this.topicService.getTopicsByOwnerId(this.userId);
-      console.log(this.topics);
-
-    }, 500);
+    }, 50);
   }
 
 }

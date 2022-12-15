@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, limit, orderBy, query, updateDoc, where } from 'firebase/firestore';
 import { getAll } from 'firebase/remote-config';
 import { Observable } from 'rxjs';
 import { Topic } from '../interfaces/topic';
@@ -25,6 +25,19 @@ export class TopicService {
 
   getOneTopic(topicId: string) {
     return getDoc(doc(this.firestore, `topics/${topicId}`));
+  }
+
+  async getThreeTopics() {
+    const result = {} as any;
+    const q = query(this.topicRef, orderBy('createdAt', 'desc'), limit(3));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      const id = doc.id;
+      result[id] = doc.data();
+    });
+
+
+    return result;
   }
 
   deleteTopic(id: string) {
