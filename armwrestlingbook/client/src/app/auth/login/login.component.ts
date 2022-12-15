@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
       .pipe(this.toast.observe({
         success: 'Logged successfully',
         loading: 'Logging in...',
-        error: 'Wrong email or'
+        error: 'Wrong email or password'
       })
       ).subscribe(() => {
         this.router.navigate(['/']);
       });
+
+    this.loginForm.controls['password'].setValue('');
   }
 
   //TODO:Implement server error handling !!!
