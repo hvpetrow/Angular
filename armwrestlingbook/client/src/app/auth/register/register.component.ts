@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
       ).subscribe(() => {
         this.router.navigate(['/']);
       });
+
+    this.registerForm.reset();
   }
-  //TODO:Implement server error handling !!!
 }
