@@ -7,6 +7,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { ContestRoutingModule } from './contest-routing.module';
 
 
 
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     SharedModule,
     RouterModule,
-
+    ContestRoutingModule
   ]
 })
 export class ContestModule { }

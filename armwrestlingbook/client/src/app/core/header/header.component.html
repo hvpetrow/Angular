@@ -1,12 +1,12 @@
 <nav class="nav">
   <ul>
     <li><a routerLink="/">Home</a></li>
-    <li *ngIf="isLoggedIn$ | async"><a routerLink="/posts">Posts</a></li>
-    <li *ngIf="isLoggedIn$ | async"><a routerLink="/my-posts">My Topics</a></li>
-    <li *ngIf="isLoggedIn$ | async"><a routerLink="/add-post">Add Topic</a></li>
-    <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">Login</a></li>
+    <li *ngIf="isLoggedIn$ | async"><a routerLink="/topics/posts">Posts</a></li>
+    <li *ngIf="isLoggedIn$ | async"><a routerLink="/user/my-posts">My Topics</a></li>
+    <li *ngIf="isLoggedIn$ | async"><a routerLink="/topics/new">Add Topic</a></li>
+    <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/user/login">Login</a></li>
     <li *ngIf="!(isLoggedIn$ | async)">
-      <a routerLink="/register">Register</a>
+      <a routerLink="/user/register">Register</a>
     </li>
     <li><a routerLink="/about">About Us</a></li>
     <li *ngIf="isLoggedIn$ | async"><a (click)="onLogout()">Logout</a></li>
