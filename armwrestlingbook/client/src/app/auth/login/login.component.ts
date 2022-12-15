@@ -25,18 +25,18 @@ export class LoginComponent implements OnInit {
   handleLogin() {
     console.log(this.loginForm.value);
     const { email, password } = this.loginForm.value;
-    this.authService.login(email, password)
-      .pipe(this.toast.observe({
-        success: 'Logged successfully',
-        loading: 'Logging in...',
-        error: 'Wrong email or password'
-      })
-      ).subscribe(() => {
+    this.authService.login(email, password).subscribe({
+      next: user => {
         this.router.navigate(['/']);
-      });
+      },
+      error: (err) => {
+        const errorMessage = err.message;
+        if (errorMessage == 'Firebase: Error (auth/wrong-password).') {
+          this.toast.error(`Incorrect email or password`)
+        }
 
-    this.loginForm.controls['password'].setValue('');
+        this.loginForm.controls['password'].setValue('');
+      }
+    });
   }
-
-  //TODO:Implement server error handling !!!
 }
