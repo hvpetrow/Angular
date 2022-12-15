@@ -7,11 +7,8 @@ import { from, map } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
   currentUser$ = authState(this.auth);
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
-  // userId$ = this.currentUser$.subscribe((user => user?.uid));// How to return the direct the id
-
 
   constructor(private auth: Auth) { }
 
