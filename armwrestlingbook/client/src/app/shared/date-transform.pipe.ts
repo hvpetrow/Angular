@@ -7,7 +7,10 @@ export class DateTransformPipe implements PipeTransform {
 
   transformedDate!: Date
   transform(firebaseTimestampObject: any): any {
-    this.transformedDate = firebaseTimestampObject.toDate();
+    if (firebaseTimestampObject) {
+      this.transformedDate = firebaseTimestampObject.toDate();
+
+    }
     return this.transformedDate;
   }
 

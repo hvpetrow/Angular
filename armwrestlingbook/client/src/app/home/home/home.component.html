@@ -7,7 +7,7 @@
 
 <section id="latest-topics">
   <h1 class="topics-represent">LATEST TOPICS...</h1>
-  <div class="container">
+  <div class="cards-container">
     <ul *ngIf="topics.length > 0" class="topics">
       <li class="topic" *ngFor="let topic of topics">
         <app-topic-card [topic]="topic"></app-topic-card>
