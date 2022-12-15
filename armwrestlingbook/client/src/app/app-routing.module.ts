@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'topics',
     loadChildren: () => import('./contest/contest.module').then(m => m.ContestModule)
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 
 ];
