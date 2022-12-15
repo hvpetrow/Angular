@@ -36,15 +36,17 @@ export class RegisterComponent implements OnInit {
   handleRegister() {
     console.log(this.registerForm.value);
     const { email, password } = this.registerForm.value;
-    this.authService.register(email, password)
-      .pipe(this.toast.observe({
-        success: 'Registered successfully',
-        loading: 'Logging in...',
-        error: 'Email is already taken!'
-      })
-      ).subscribe(() => {
+    this.authService.register(email, password).subscribe({
+      next: user => {
         this.router.navigate(['/']);
-      });
+      },
+      error: (err) => {
+        const errorMessage = err.message;
+        if (errorMessage == 'auth/email-already-in-use') {
+          this.toast.error(`Email: ${email} is already taken!`)
+        }
+      }
+    });
 
     this.registerForm.reset();
   }
