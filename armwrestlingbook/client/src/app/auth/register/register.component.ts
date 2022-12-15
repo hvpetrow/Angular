@@ -42,7 +42,9 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         const errorMessage = err.message;
-        if (errorMessage == 'auth/email-already-in-use') {
+        console.log(errorMessage);
+
+        if (errorMessage == 'Firebase: Error (auth/email-already-in-use).') {
           this.toast.error(`Email: ${email} is already taken!`)
         }
       }
