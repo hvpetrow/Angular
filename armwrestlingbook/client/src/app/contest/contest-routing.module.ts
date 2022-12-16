@@ -4,6 +4,7 @@ import { AllTopicsComponent } from "./all-topics/all-topics.component";
 import { CreateContestComponent } from "./create-contest/create-contest.component";
 import { DetailsComponent } from "./details/details.component";
 import { EditTopicComponent } from "./edit-topic/edit-topic.component";
+import { SearchComponent } from "./search/search.component";
 
 const routes: Routes = [
     {
@@ -23,6 +24,10 @@ const routes: Routes = [
     {
         path: ':topicId/details',
         component: DetailsComponent,
+    },
+    {
+        path: 'search',
+        component: SearchComponent,
     },
 ];
 

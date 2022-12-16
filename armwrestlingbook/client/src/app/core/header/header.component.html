@@ -16,7 +16,7 @@
     <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="/user/register">Register</a>
     </li>
-    <li><a routerLink="/about">About Us</a></li>
+    <li><a routerLink="/topics/search">Search</a></li>
     <li *ngIf="isLoggedIn$ | async"><a (click)="onLogout()">Logout</a></li>
   </ul>
 </nav>

@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ContestRoutingModule } from './contest-routing.module';
 import { AllTopicsComponent } from './all-topics/all-topics.component';
 import { HomeModule } from '../home/home/home.module';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -20,6 +21,7 @@ import { HomeModule } from '../home/home/home.module';
     EditTopicComponent,
     CommentsComponent,
     AllTopicsComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
