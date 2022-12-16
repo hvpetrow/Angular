@@ -1,10 +1,10 @@
 <section *ngIf="topics | async as topics; else loader" id="latest-topics">
   <div class="cards-container">
     <ul *ngIf="objectKeys(topics).length > 0" class="topics">
-      <li class="topic" *ngFor="let topic of objectKeys(topics)">
+      <li class="topic" *ngFor="let topicId of objectKeys(topics)">
         <app-topic-card
-          [topicId]="topic"
-          [topic]="topics[topic]"
+          [topicId]="topicId"
+          [topic]="topics[topicId]"
         ></app-topic-card>
       </li>
     </ul>

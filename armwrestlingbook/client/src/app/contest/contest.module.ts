@@ -11,6 +11,7 @@ import { ContestRoutingModule } from './contest-routing.module';
 import { AllTopicsComponent } from './all-topics/all-topics.component';
 import { HomeModule } from '../home/home/home.module';
 import { SearchComponent } from './search/search.component';
+import { TopicTemplateComponent } from './topic-template/topic-template.component';
 
 
 
@@ -22,6 +23,7 @@ import { SearchComponent } from './search/search.component';
     CommentsComponent,
     AllTopicsComponent,
     SearchComponent,
+    TopicTemplateComponent,
   ],
   imports: [
     CommonModule,

@@ -1,1 +1,30 @@
-<p>search works!</p>
+<div id="search">
+  <input
+    class="inputFields"
+    #search="ngModel"
+    ngModel
+    name="search"
+    type="text"
+  />
+  <button class="search-btn" (click)="searchTopics(search)">Search</button>
+</div>
+
+<ng-container *ngIf="topics || topics == 'no topics'; else loadingIndicator">
+  <section *ngIf="topics != 'no topics'; else noTopic" class="cards-wrapper">
+    <app-topic-template
+      *ngFor="let topicId of objectKeys(topics)"
+      [topics]="topics"
+      [topicId]="topicId"
+    ></app-topic-template>
+  </section>
+
+  <ng-template #noTopic>
+    <div class="no-posts">
+      <p class="no-offer">No matches for your search.</p>
+    </div>
+  </ng-template>
+</ng-container>
+
+<ng-template #loadingIndicator>
+  <p class="loading">Loading...</p>
+</ng-template>

@@ -1,0 +1,134 @@
+#search {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.inputFields {
+  font-size: 17px;
+  padding: 10px;
+  width: 420px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, 0.801);
+  color: white;
+  border-radius: 30px;
+  outline: none;
+  height: 45px;
+}
+
+.search-btn {
+  font-size: 16px;
+  margin-left: 30px;
+  width: 75px;
+  height: 38px;
+  padding: 6px;
+  border: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgb(9, 146, 146);
+  color: white;
+  outline: none;
+  border-radius: 30px;
+}
+
+.no-posts-img > img {
+  width: 360px;
+  display: inline-block;
+  height: 260px;
+  border-radius: 10px;
+  border: 7px solid #313131;
+}
+
+.no-posts-img {
+  margin-top: 60px;
+}
+
+.no-offer {
+  margin-top: 20px;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.no-posts {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+mat-spinner {
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
