@@ -57,7 +57,6 @@ export class EditTopicComponent implements OnInit {
   }
 
   async onSubmit() {
-
     const newTopic = {
       title: this.editTopicForm.value.title,
       description: this.editTopicForm.value.description,
@@ -65,11 +64,10 @@ export class EditTopicComponent implements OnInit {
     }
     try {
       const response = await this.topicService.updateTopic(newTopic, this.topicId);
+      this.router.navigate([`/`]);
 
     } catch (error) {
       console.error(error);
     }
-
-    this.router.navigate([`/`]);
   }
 }

@@ -73,9 +73,13 @@ input {
   cursor: pointer;
 }
 
-.primary-btn:hover {
+.primary-btn:hover:enabled {
   background-color: #ffffff;
   color: #080710;
+}
+
+.primary-btn:disabled {
+  opacity: 0.5;
 }
 
 .reg-link {

@@ -98,8 +98,12 @@ textarea {
   margin-top: 20px;
 }
 
-.add-album:hover {
+.add-album:hover:enabled {
   background-image: linear-gradient(315deg, #6eb9b6 10%, #214863 74%);
+}
+
+.add-album:disabled {
+  opacity: 0.5;
 }
 
 .createPage,
