@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ContestRoutingModule } from './contest-routing.module';
 import { AllTopicsComponent } from './all-topics/all-topics.component';
+import { HomeModule } from '../home/home/home.module';
 
 
 
@@ -26,7 +27,8 @@ import { AllTopicsComponent } from './all-topics/all-topics.component';
     FormsModule,
     SharedModule,
     RouterModule,
-    ContestRoutingModule
+    ContestRoutingModule,
+    HomeModule
   ]
 })
 export class ContestModule { }

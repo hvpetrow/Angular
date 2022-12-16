@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
+import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
   selector: 'app-all-topics',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllTopicsComponent implements OnInit {
 
-  constructor() { }
+  objectKeys = Object.keys;
+  topics = this.topicService.getAllTopics();
+
+  constructor(
+    private topicService: TopicService
+  ) { }
 
   ngOnInit(): void {
   }

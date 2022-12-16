@@ -1,0 +1,25 @@
+#latest-topics .topics-represent {
+  font-size: 36px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1680px;
+  margin: 40px 0;
+}
+
+.topics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1680px;
+}
+
+.topic {
+  list-style: none;
+}

@@ -111,6 +111,12 @@ export class DetailsComponent implements OnInit {
     if (answer) {
       try {
         await this.topicService.deleteTopic(this.topicId);
+        let comments: any = await this.topicService.getCommentsByTopicId(this.topicId);
+        Object.keys(comments).forEach(id => {
+          this.topicService.removeComment(id);
+        });
+
+        this.router.navigate(['/topics']);
       } catch (error) {
         this.toast.error('Something went wrong!')
       }

@@ -9,6 +9,7 @@ import { Topic } from 'src/app/interfaces/topic';
 export class TopicCardComponent implements OnInit {
 
   @Input() topic!: any;
+  @Input() topicId!: string;
 
   constructor() { }
 

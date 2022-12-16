@@ -31,9 +31,10 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => {
         const errorMessage = err.message;
-        if (errorMessage == 'Firebase: Error (auth/wrong-password).') {
+        if (errorMessage == 'Firebase: Error (auth/wrong-password).' || errorMessage == 'Firebase: Error (auth/user-not-found).') {
           this.toast.error(`Incorrect email or password`)
         }
+
 
         this.loginForm.controls['password'].setValue('');
       }

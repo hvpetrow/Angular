@@ -19,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    TopicCardComponent
   ]
 })
 export class HomeModule { }

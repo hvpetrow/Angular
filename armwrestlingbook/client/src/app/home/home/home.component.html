@@ -5,12 +5,15 @@
   </div>
 </div>
 
-<section *ngIf="topics" id="latest-topics">
+<section *ngIf="topics; else loader" id="latest-topics">
   <h1 class="topics-represent">LATEST TOPICS...</h1>
   <div class="cards-container">
     <ul *ngIf="objectKeys(topics).length > 0" class="topics">
       <li class="topic" *ngFor="let topic of objectKeys(topics)">
-        <app-topic-card [topic]="topics[topic]"></app-topic-card>
+        <app-topic-card
+          [topicId]="topic"
+          [topic]="topics[topic]"
+        ></app-topic-card>
       </li>
     </ul>
 
@@ -19,7 +22,6 @@
     </div>
   </div>
 </section>
-<h1 *ngIf="user$ | async as user">Welcome to our app, {{ user.email }}</h1>
 <ng-template #loader>
   <div class="ring">
     Loading

@@ -12,4 +12,8 @@ export class CommentsComponent {
   @Input() user: any;
   @Input() isOwner!: boolean;
 
+
+  deleteHandler() {
+
+  }
 }

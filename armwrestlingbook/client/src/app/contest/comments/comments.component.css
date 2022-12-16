@@ -32,7 +32,7 @@
 .owner-info {
   padding: 10px;
   border: 2px solid white;
-  background: #ac1020;
+  background: #0044ad;
   color: white;
   outline: none;
   border-radius: 25px;
@@ -51,28 +51,26 @@
   color: rgb(214 68 243);
 }
 
-.like-btn,
-.unlike-btn {
+.delete-btn {
   float: right;
   font-size: 12px;
   margin-right: 10px;
   margin-bottom: 7px;
   margin-left: 670px;
-
-  padding: 6px;
-  border: 1px solid white;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background: rgb(9, 146, 146);
+  position: relative;
+  bottom: 50px;
+  padding: 8px;
+  border: 2px solid white;
+  cursor: pointer;
+  background: #d13746;
   color: white;
   outline: none;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.unlike-btn {
-  color: white;
-  background: rgb(195, 5, 81);
+.delete-btn:hover {
+  background: #ac1020;
+  font-size: 13px;
 }
 
 .likes-no {

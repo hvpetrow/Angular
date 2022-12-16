@@ -19,8 +19,16 @@ export class TopicService {
     return addDoc(this.topicRef, newTopic);
   }
 
-  getAllTopics(): Observable<Topic[]> {
-    return collectionData(this.topicRef, { idField: 'id' }) as Observable<Topic[]>;
+  async getAllTopics() {
+
+    const res = {} as any;
+    const q = query(this.topicRef, orderBy('createdAt', 'desc'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      const id = doc.id;
+      res[id] = doc.data();
+    });
+    return res;
   }
 
   getOneTopic(topicId: string) {
@@ -55,7 +63,7 @@ export class TopicService {
 
   async getTopicsByOwnerId(ownerId: any) {
     const result = {} as any;
-    const q = query(this.topicRef, where("creator", "==", ownerId));
+    const q = query(this.topicRef, where("creator", "==", ownerId), orderBy('createdAt', 'desc'));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       const id = doc.id;
@@ -75,6 +83,11 @@ export class TopicService {
     });
 
     return result;
+  }
+
+
+  removeComment(commentId: string) {
+    return deleteDoc(doc(this.firestore, `comments/${commentId}`));
   }
 
 }
