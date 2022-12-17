@@ -1,7 +1,7 @@
 Armwrestlingbook 2022
 
 Small forum,blog,info web app about armwrestling.
-Using Angular for front-end, Firebase as backend,css files for styling.
+Using Angular for front-end, Firebase as backend, css files for styling.
 
 Short info and functionalities:
 
