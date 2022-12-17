@@ -13,7 +13,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -145,6 +145,7 @@
   float: right;
   width: 45%;
   display: inline-block;
+  border-radius: 10px;
 }
 
 #container img {
@@ -299,26 +300,6 @@ body {
 .comments_btn:active {
   transform: translateY(4px);
 }
-/* 
-.comments_btn:after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #383838;
-  color: #333;
-  transition: all 0.35s;
-}
-
-.comments_btn:hover {
-  color: #fff;
-}
-
-.comments_btn:hover:after {
-  width: 100%;
-} */
 
 /* comments */
 
@@ -326,6 +307,7 @@ body {
   margin-top: 3em;
   left: 50%;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .comments_h2 {

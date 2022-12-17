@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
   commentCount: any;
   isShowedComments: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
+  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, public firestore: Firestore, private topicService: TopicService, private router: Router, public toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {

@@ -1,3 +1,6 @@
+<div>
+  <h1 class="topics-represent">All TOPICS...</h1>
+</div>
 <section *ngIf="topics | async as topics; else loader" id="latest-topics">
   <div class="cards-container">
     <ul *ngIf="objectKeys(topics).length > 0" class="topics">

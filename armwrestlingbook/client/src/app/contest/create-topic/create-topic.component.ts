@@ -18,7 +18,7 @@ export class CreateTopicComponent implements OnInit {
   userId!: any;
   userEmail!: any;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private topicService: TopicService, private router: Router, private toast: HotToastService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private topicService: TopicService, private router: Router, public toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {

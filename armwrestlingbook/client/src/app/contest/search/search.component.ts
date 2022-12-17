@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Topic } from 'src/app/interfaces/topic';
 import { TopicService } from 'src/app/services/topic.service';
 
@@ -11,28 +12,35 @@ import { TopicService } from 'src/app/services/topic.service';
 export class SearchComponent implements OnInit {
   topics: any = {};
   objectKeys = Object.keys;
+  isEmptyString: boolean = false;
 
-  constructor(private topicService: TopicService) { }
+  constructor(private topicService: TopicService, public toast: HotToastService) { }
 
   ngOnInit(): void {
   }
 
   async searchTopics(search: NgControl) {
-    this.topics = false;
-    let result: { [key: string]: Topic } = {};
-    const oldTopics = await this.topicService.getAllTopics();
-    const topicsKeys = Object.keys(oldTopics);
+    if (search.value !== '') {
 
-    topicsKeys.forEach(key => {
-      if (oldTopics[key].title.toLowerCase().includes(search.value.toLowerCase())) {
-        result[key] = oldTopics[key];
+      this.topics = false;
+      let result: { [key: string]: Topic } = {};
+      const oldTopics = await this.topicService.getAllTopics();
+      const topicsKeys = Object.keys(oldTopics);
+
+      topicsKeys.forEach(key => {
+        if (oldTopics[key].title.toLowerCase().includes(search.value.toLowerCase())) {
+          result[key] = oldTopics[key];
+        }
+      });
+
+      if (Object.keys(result).length == 0) {
+        this.topics = 'no topics';
+      } else {
+        this.topics = result;
       }
-    });
-
-    if (Object.keys(result).length == 0) {
-      this.topics = 'no topics';
     } else {
-      this.topics = result;
+      this.isEmptyString = true;
+      this.toast.warning('Define search criteria!');
     }
   }
 }

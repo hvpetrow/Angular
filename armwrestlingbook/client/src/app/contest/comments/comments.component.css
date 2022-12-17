@@ -19,15 +19,6 @@
 }
 
 .owner {
-  /* padding: 10px;
-    border: 1px solid rgba(10, 180, 180, 1);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: rgba(20, 20, 20, 0.342);
-    color: white;
-    outline: none;
-    border-radius: 50px; */
   text-align: center;
 }
 
@@ -36,7 +27,7 @@
   border: 2px solid white;
   border-top: none;
   border-left: none;
-  background: #d85035;
+  background: #933627;
   color: white;
   outline: none;
   border-radius: 25px;

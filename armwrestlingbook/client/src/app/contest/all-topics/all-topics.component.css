@@ -81,6 +81,12 @@ span:before {
   box-shadow: 0 0 20px #b9ad05;
 }
 
+.topics-represent {
+  font-size: 36px;
+  color: #d85035;
+  text-align: center;
+}
+
 @keyframes animateC {
   0% {
     transform: rotate(0deg);
