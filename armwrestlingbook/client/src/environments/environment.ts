@@ -16,18 +16,18 @@ export const environment = {
     measurementId: 'G-8VCRVNVL7H',
   },
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyADFzIRvkcdmH-_u1sVarI37tXznUcXjvw",
-    authDomain: "armwrestlingbook.firebaseapp.com",
-    projectId: "armwrestlingbook",
-    storageBucket: "armwrestlingbook.appspot.com",
-    messagingSenderId: "337243646890",
-    appId: "1:337243646890:web:dcc9fe586d43229a7c59d3",
-    measurementId: "G-8VCRVNVL7H"
-  }
+  // firebaseConfig: {
+  //   apiKey: "AIzaSyADFzIRvkcdmH-_u1sVarI37tXznUcXjvw",
+  //   authDomain: "armwrestlingbook.firebaseapp.com",
+  //   projectId: "armwrestlingbook",
+  //   storageBucket: "armwrestlingbook.appspot.com",
+  //   messagingSenderId: "337243646890",
+  //   appId: "1:337243646890:web:dcc9fe586d43229a7c59d3",
+  //   measurementId: "G-8VCRVNVL7H"
+  // }
 };
 
-const app = initializeApp(environment.firebaseConfig);
+// const app = initializeApp(environment.firebaseConfig);
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

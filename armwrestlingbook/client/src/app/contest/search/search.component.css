@@ -8,7 +8,7 @@
   font-size: 17px;
   padding: 10px;
   width: 420px;
-  border: 2px solid #ef816c;
+  border: 2px solid #c33030;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -29,10 +29,16 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  background: #ef816c;
+  background: #c33030;
   color: white;
   outline: none;
   border-radius: 30px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: #c40404;
+  font-size: 18px;
 }
 
 .no-posts-img > img {

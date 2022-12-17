@@ -20,7 +20,7 @@ Components:
 
 - Core: core module - contains Footer ,Header components and guards.
 - Home: home module - contains Home and TopicCard components.
-- Pages: page module - contains PageNotFount component.
+- Pages: page module - contains PageNotFound component.
 - Shared: shared module - contains date-transform pipe.
 - Others:
   - interfaces - Topic interface.
@@ -28,11 +28,11 @@ Components:
 
 Visitors can see:
 
-- latest topics on home page.
-- all topics on all topics page.
-- also can searching topics on search page.
+- Latest topics on home page.
+- All topics on all topics page.
+- Also can searching topics on search page.
 - See additional info for the topic(with hovering on the picture).
-- login/register theirselves.
+- Login/Register theirselves.
 
 Registered / Logged-in Users can also:
 

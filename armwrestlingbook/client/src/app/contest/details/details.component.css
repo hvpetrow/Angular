@@ -291,7 +291,7 @@ body {
   background-size: 100% 100%;
   color: #0e0e0f;
   animation: spring 300ms ease-out;
-  text-shadow: 0 -1px 0 #ef816c;
+  text-shadow: 0 -1px 0 #c33030;
   font-weight: bolder;
   border: 2px solid;
 }
@@ -339,7 +339,7 @@ body {
   margin: 50px auto;
   display: flex;
   max-width: 950px;
-  background: -webkit-linear-gradient(to right, #383838, rgb(179, 91, 98));
+  background: -webkit-linear-gradient(to right, #383838, #c33030);
   background: -webkit-gradient(
     linear,
     left top,

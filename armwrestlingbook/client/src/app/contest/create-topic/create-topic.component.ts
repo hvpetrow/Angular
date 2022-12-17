@@ -7,11 +7,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
-  selector: 'app-create-contest',
-  templateUrl: './create-contest.component.html',
-  styleUrls: ['./create-contest.component.css']
+  selector: 'app-create-topic',
+  templateUrl: './create-topic.component.html',
+  styleUrls: ['./create-topic.component.css']
 })
-export class CreateContestComponent implements OnInit {
+export class CreateTopicComponent implements OnInit {
 
   createContestForm!: FormGroup;
   user$ = this.authService.currentUser$;

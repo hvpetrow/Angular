@@ -1,12 +1,16 @@
 <div id="search">
-  <input
-    class="inputFields"
-    #search="ngModel"
-    ngModel
-    name="search"
-    type="text"
-  />
-  <button class="search-btn" (click)="searchTopics(search)">Search</button>
+  <form (ngSubmit)="searchTopics(search)">
+    <input
+      class="inputFields"
+      #search="ngModel"
+      ngModel
+      name="search"
+      type="text"
+    />
+    <button class="search-btn" type="submit" (click)="searchTopics(search)">
+      Search
+    </button>
+  </form>
 </div>
 
 <ng-container *ngIf="topics || topics == 'no topics'; else loader">

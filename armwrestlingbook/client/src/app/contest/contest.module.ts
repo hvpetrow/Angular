@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreateContestComponent } from './create-contest/create-contest.component';
+import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTopicComponent } from './edit-topic/edit-topic.component';
 import { CommentsComponent } from './comments/comments.component';
@@ -17,7 +17,7 @@ import { TopicTemplateComponent } from './topic-template/topic-template.componen
 
 @NgModule({
   declarations: [
-    CreateContestComponent,
+    CreateTopicComponent,
     DetailsComponent,
     EditTopicComponent,
     CommentsComponent,
