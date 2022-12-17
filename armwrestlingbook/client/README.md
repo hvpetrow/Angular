@@ -8,7 +8,7 @@ Short info and functionalities:
 Components:
 
 - Authentication: auth module - contains Login, Register and MyTopics components.
-- Contests: contest module - contains AllTopics,Comments,Create,Details,Edit,Search and TopicTemplate components.{
+- Contests: contest module - contains AllTopics,Comments,Create,Details,Edit,Search and TopicTemplate components.
 
   - AllTopics - logic and implementation for loading all topics in app;
   - Create - logic,form and implementation for creation of new topic;
@@ -17,16 +17,14 @@ Components:
   - Comments - logic,form and implementation for additing and deleting of the comments;
   - Search - logic,search bar and implementation for the searching;
   - TopicTemplate - template of the topic;
-    }
 
 - Core: core module - contains Footer ,Header components and guards.
 - Home: home module - contains Home and TopicCard components.
 - Pages: page module - contains PageNotFount component.
 - Shared: shared module - contains date-transform pipe.
-- Others: {
+- Others:
   - interfaces - Topic interface,
   - services - authService and topicService
-    }
 
 Visitors can see:
 
