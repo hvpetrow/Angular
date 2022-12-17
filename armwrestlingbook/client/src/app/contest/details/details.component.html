@@ -7,8 +7,9 @@
     <div class="product-details">
       <h1>{{ topic.title }}</h1>
       <p class="information">{{ topic.description }}</p>
+      <p class="likes-count">Likes: {{ topic.likes.length }}</p>
 
-      <div class="like-buttons">
+      <div *ngIf="!isOwner && userId" class="like-buttons">
         <button *ngIf="!hasLiked" (click)="likeHandler()" class="btn">
           <span class="like">Like</span>
         </button>
@@ -45,7 +46,7 @@
     </div>
   </div>
 
-  <button (click)="showComments()" *ngIf="comments" class="comments_btn">
+  <button (click)="toggleComments()" *ngIf="comments" class="comments_btn">
     <span> Comments({{ objectKeys(comments).length }})</span>
   </button>
 
@@ -54,11 +55,11 @@
       <ul class="noBullet">
         <ng-container *ngIf="isShowedComments">
           <app-comments
-            *ngFor="let comment of objectKeys(comments)"
-            [user]="user$"
+            *ngFor="let commentId of objectKeys(comments)"
+            [user]="user$ | async"
             [comments]="comments"
-            [comment]="comment"
-            [isOwner]="isOwner"
+            [commentId]="commentId"
+            (deleteComment)="deleteComment($event)"
           ></app-comments>
         </ng-container>
 
@@ -79,7 +80,11 @@
           </li>
 
           <li id="center-btn">
-            <button (click)="postComment(comment)" id="post-btn">
+            <button
+              [disabled]="comment.invalid"
+              (click)="postComment(comment)"
+              id="post-btn"
+            >
               Post Comment
             </button>
           </li>

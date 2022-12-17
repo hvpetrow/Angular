@@ -9,22 +9,34 @@
   <button class="search-btn" (click)="searchTopics(search)">Search</button>
 </div>
 
-<ng-container *ngIf="topics || topics == 'no topics'; else loadingIndicator">
-  <section *ngIf="topics != 'no topics'; else noTopic" class="cards-wrapper">
-    <app-topic-template
-      *ngFor="let topicId of objectKeys(topics)"
-      [topics]="topics"
-      [topicId]="topicId"
-    ></app-topic-template>
-  </section>
+<ng-container *ngIf="topics || topics == 'no topics'; else loader">
+  <div id="latest-topics">
+    <section
+      *ngIf="topics != 'no topics'; else noTopic"
+      class="cards-container"
+    >
+      <ul class="topics">
+        <li class="topic">
+          <app-topic-template
+            *ngFor="let topicId of objectKeys(topics)"
+            [topics]="topics"
+            [topicId]="topicId"
+          ></app-topic-template>
+        </li>
+      </ul>
+    </section>
 
-  <ng-template #noTopic>
-    <div class="no-posts">
-      <p class="no-offer">No matches for your search.</p>
-    </div>
-  </ng-template>
+    <ng-template #noTopic>
+      <div class="no-posts">
+        <p class="no-offer">No matches for your search.</p>
+      </div>
+    </ng-template>
+  </div>
 </ng-container>
 
-<ng-template #loadingIndicator>
-  <p class="loading">Loading...</p>
+<ng-template #loader>
+  <div class="ring">
+    Loading
+    <span class="ring_span"></span>
+  </div>
 </ng-template>

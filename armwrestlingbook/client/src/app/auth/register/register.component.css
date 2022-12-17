@@ -70,8 +70,18 @@ input {
 }
 
 .primary-btn:hover:enabled {
-  background-color: #ffffff;
-  color: #080710;
+  background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
+  /* background-image: url("/client/src/assets/button.webp"); */
+  background-size: 100% 100%;
+  color: #0e0e0f;
+  animation: spring 300ms ease-out;
+  text-shadow: 0 -1px 0 #ef816c;
+  font-weight: bolder;
+  border: 2px solid;
+}
+
+.primary-btn:active:enabled {
+  transform: translateY(4px);
 }
 
 .primary-btn:disabled {

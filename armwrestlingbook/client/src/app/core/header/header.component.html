@@ -1,7 +1,7 @@
 <nav class="nav">
   <ul>
     <li><a routerLink="/">Home</a></li>
-    <li *ngIf="isLoggedIn$ | async">
+    <li>
       <a routerLink="/topics/all-topics">All Topics</a>
     </li>
     <li *ngIf="isLoggedIn$ | async">

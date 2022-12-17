@@ -1,27 +1,41 @@
-# Client
+Angular Project Trance Festivals worldwide 2019
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+Small website containing information about trance music events all over the world.
+Using Angular for front-end, Kinvey as backend; Bootstrap; Toastr.
 
-## Development server
+Short info and functionalities:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Components:
 
-## Code scaffolding
+- Authentication module - contains Login and Register components.
+- Comments module - contains components with logic and forms for add,edit,delete comments;
+- Fests module - contains components for add,edit and delete festivals.
+- Landing module - contains component displayed when a user has been blocked by Admin,
+  and home component with info for the published festivals.
+- Shared module - contains Header with public area info and simple text footer.
+- Users module - contains components with info for every user area - own comments and published info,
+  all users - accessible for admin users; admin functionalities for editing users' collection.
+- Core module - Contains: Kinvey Appkey and Appsecret; Auth guard; Error interceptor and token interceptors;
+  Models folder containing interfaces.
+- Services folder - auth service and handling calls to database using Observables.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Visitors:
 
-## Build
+Can see most visited festivals on home page.
+On clicking review button, redirect to Login Page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Registered / Logged-in Users can:
 
-## Running unit tests
+Add and/or edit new post for festivals
+Add and/or edit their comments below each post.
+Like other users' comments.
+Edit their own profile - the e-mail address.
+View published festivals by all users.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Admin functionalities:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Delete all posts
+Delete all comments
+Delete / Edit users
+Block / Unblock selected users.
+Admin role is implemented with Kinvey role Id.

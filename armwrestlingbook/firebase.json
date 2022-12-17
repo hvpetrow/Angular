@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/client",
+    "public": "dist/armwrestlingbook",
     "ignore": [
       "firebase.json",
       "**/.*",

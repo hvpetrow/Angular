@@ -27,7 +27,7 @@ import { PagesModule } from './pages/pages.module';
     HomeModule,
     CoreModule,
     PagesModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),

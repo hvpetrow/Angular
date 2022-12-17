@@ -21,6 +21,7 @@
   text-align: left;
   overflow: hidden;
   padding: 30px;
+  /* padding-top: 0; */
   height: 100%;
   float: left;
   width: 45%;
@@ -61,10 +62,16 @@
   bottom: 5%;
   left: 11%;
 }
+
+.likes-count {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
 .btn {
   transform: translateY(0px);
   transition: 0.3s linear;
-  background: #809fff;
+  background: #d1c408a4;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -78,7 +85,7 @@
 
 .btn:hover {
   transform: translateY(-6px);
-  background: #1a66ff;
+  background: #ffd000;
 }
 
 .btn span {
@@ -114,13 +121,13 @@
 }
 
 .btn .unlike:hover {
-  background: #fc6c85;
+  background: #d85035;
   z-index: 3;
   font-weight: bolder;
 }
 
 .btn .like:hover {
-  background: #bf40bf;
+  background: #370adbe1;
   z-index: 3;
   font-weight: bolder;
 }
@@ -278,6 +285,21 @@ body {
   z-index: 2;
 }
 
+.comments_btn:hover:enabled {
+  background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
+  /* background-image: url("/client/src/assets/button.webp"); */
+  background-size: 100% 100%;
+  color: #0e0e0f;
+  animation: spring 300ms ease-out;
+  text-shadow: 0 -1px 0 #ef816c;
+  font-weight: bolder;
+  border: 2px solid;
+}
+
+.comments_btn:active {
+  transform: translateY(4px);
+}
+/* 
 .comments_btn:after {
   position: absolute;
   content: "";
@@ -296,7 +318,7 @@ body {
 
 .comments_btn:hover:after {
   width: 100%;
-}
+} */
 
 /* comments */
 
@@ -332,6 +354,8 @@ body {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   margin-bottom: 8em;
+  /* border: 3px solid #ef816c; */
+  box-shadow: 0 15px 30px 1px #303030;
 }
 
 .noBullet {
@@ -345,15 +369,23 @@ body {
   margin: 18px 0;
   padding: 10px;
   width: 270px;
-  border: 1px solid #3753ef;
+  border: 1px solid #e66045;
   background: rgba(20, 20, 20, 0.342);
   color: white;
   border-radius: 10px;
   outline: none;
 }
 
+textarea {
+  margin-top: 40px;
+  resize: none;
+  height: 70px;
+  width: 450px !important;
+  font-size: 16px;
+}
+
 #post-btn {
-  border: 1px solid #cc5500;
+  border: 1px solid #e66045;
   background: rgba(20, 20, 20, 0.6);
   font-size: 18px;
   color: white;
@@ -364,9 +396,13 @@ body {
   border-radius: 20px;
 }
 #post-btn:hover:enabled {
-  border: 3px solid #cc5500;
+  border: 3px solid #e66045;
   background: black;
   font-size: 20px;
+}
+
+#post-btn:disabled {
+  opacity: 0.5;
 }
 
 /* end-comments */

@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   }
 
   async searchTopics(search: NgControl) {
-    this.topics = {}
+    this.topics = false;
     let result: { [key: string]: Topic } = {};
     const oldTopics = await this.topicService.getAllTopics();
     const topicsKeys = Object.keys(oldTopics);

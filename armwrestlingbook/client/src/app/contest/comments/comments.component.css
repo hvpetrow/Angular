@@ -7,11 +7,13 @@
 
 .comment {
   width: 670px;
-  border: 1px solid #33b864;
+  border: 2px solid #fff;
+  border-right: none;
+  border-bottom: none;
   background: rgba(20, 20, 20, 0.342);
   color: white;
   outline: none;
-  border-radius: 20px;
+  border-radius: 28px;
   word-wrap: break-word;
   padding: 10px 10px 5px 10px;
 }
@@ -32,23 +34,25 @@
 .owner-info {
   padding: 10px;
   border: 2px solid white;
-  background: #0044ad;
+  border-top: none;
+  border-left: none;
+  background: #d85035;
   color: white;
   outline: none;
   border-radius: 25px;
-  width: 140px;
+  width: 148px;
   word-wrap: break-word;
   margin-top: 45px;
   margin-left: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .timestamp {
   float: right;
   margin-top: 5px;
   margin-right: 10px;
-  font-size: 13px;
-  color: rgb(214 68 243);
+  font-size: 14px;
+  color: #e66045;
 }
 
 .delete-btn {

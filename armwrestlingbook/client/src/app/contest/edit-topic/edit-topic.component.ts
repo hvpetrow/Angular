@@ -63,8 +63,8 @@ export class EditTopicComponent implements OnInit {
       photoUrl: this.editTopicForm.value.photoUrl ? this.editTopicForm.value.photoUrl : '/assets/topic.jpg',
     }
     try {
-      const response = await this.topicService.updateTopic(newTopic, this.topicId);
-      this.router.navigate([`/`]);
+      await this.topicService.updateTopic(newTopic, this.topicId);
+      this.router.navigate([`/topics/${this.topicId}/details`]);
 
     } catch (error) {
       console.error(error);

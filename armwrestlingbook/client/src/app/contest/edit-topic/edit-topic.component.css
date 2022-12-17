@@ -59,7 +59,7 @@ textarea::-webkit-input-placeholder {
 
 input[type="text"]:hover,
 textarea:hover {
-  border-color: #21e673;
+  border-color: #bba007;
 }
 
 input[type="text"]:focus,
@@ -74,7 +74,7 @@ textarea {
   font-family: "Lato";
   color: #fff;
 }
-
+/* 
 .add-album,
 .edit-album {
   width: 150px;
@@ -100,9 +100,36 @@ textarea {
 
 .add-album:hover:enabled {
   background-image: linear-gradient(315deg, #6eb9b6 10%, #214863 74%);
+} */
+
+.edit-album {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #0c0e13;
+  color: #ffffff;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.add-album:disabled {
+.edit-album:hover:enabled {
+  background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
+  /* background-image: url("/client/src/assets/button.webp"); */
+  background-size: 100% 100%;
+  color: #0e0e0f;
+  animation: spring 300ms ease-out;
+  text-shadow: 0 -1px 0 #ef816c;
+  font-weight: bolder;
+  border: 2px solid;
+}
+
+.edit-album:active:enabled {
+  transform: translateY(4px);
+}
+
+.edit-album:disabled {
   opacity: 0.5;
 }
 

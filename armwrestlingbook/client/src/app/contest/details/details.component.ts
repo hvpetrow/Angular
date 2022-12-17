@@ -37,8 +37,6 @@ export class DetailsComponent implements OnInit {
       this.userId = user?.uid;
       this.currentUserEmail = user?.email;
     });
-    console.log('userId:', this.userId);
-
 
     this.activatedRoute.params.subscribe(params => {
       this.topicId = params['topicId'];
@@ -49,20 +47,13 @@ export class DetailsComponent implements OnInit {
           this.topic = data.data();
           this.isOwner = this.topic.creator == this.userId;
           this.creatorEmail = this.topic.creatorEmail;
-          console.log(this.topic);
         });
     });
 
     this.getComments();
 
     setTimeout(() => {
-      console.log(this.topic);
-      console.log(this.userId);
-
-
       this.hasLiked = this.topic?.likes?.find((like: string | undefined) => like === this.userId);
-      console.log('isParticpant:', this.hasLiked);
-      console.log('likes:', this.topic?.likes);
     }, 400);
   }
 
@@ -75,16 +66,18 @@ export class DetailsComponent implements OnInit {
       await updateDoc(currentTopicRef, {
         likes: arrayUnion(this.userId)
       });
-
       this.toast.success('Topic liked!');
+      setTimeout(() => {
+        this.topicService.getOneTopic(this.topicId).then((data) => {
+          this.topic = data.data();
+        })
+      }, 220);
+
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     this.hasLiked = true;
-    console.log('userId:', this.userId);
-    console.log('likes:', this.topic.likes);
-
   }
 
   async cancelLikeHandler() {
@@ -95,13 +88,17 @@ export class DetailsComponent implements OnInit {
         likes: arrayRemove(this.userId)
       });
       this.toast.success('You have unliked the topic!');
+      setTimeout(() => {
+        this.topicService.getOneTopic(this.topicId).then((data) => {
+          this.topic = data.data();
+        })
+      }, 220);
+
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     this.hasLiked = false;
-
-    console.log('likes:', this.topic.likes);
 
   }
 
@@ -138,10 +135,11 @@ export class DetailsComponent implements OnInit {
     try {
       const response = this.topicService.addComment(newComment);
       comment.reset();
-      console.log(response);
       setTimeout(() => {
         this.getComments();
       }, 300);
+      this.isShowedComments = true;
+
     } catch (error) {
       console.error(error);
     }
@@ -150,15 +148,26 @@ export class DetailsComponent implements OnInit {
   async getComments() {
     setTimeout(async () => {
       this.comments = await this.topicService.getCommentsByTopicId(this.topicId);
-      console.log(this.comments);
     }, 10);
-
-
-    console.log(this.commentsArr);
-
   }
 
-  showComments() {
-    this.isShowedComments = true;
+  toggleComments() {
+    if (this.isShowedComments == true) {
+      this.isShowedComments = false;
+    } else {
+      this.isShowedComments = true;
+    }
+  }
+
+  deleteComment(commentId: string) {
+    try {
+      this.topicService.removeComment(commentId);
+      setTimeout(async () => {
+        this.comments = await this.topicService.getCommentsByTopicId(this.topicId);
+      }, 180);
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

@@ -1,18 +1,18 @@
 <li>
   <div class="owner-info">
-    <span class="owner">{{ comments[comment].ownerEmail }}</span>
+    <span class="owner">{{ comments[commentId].ownerEmail }}</span>
   </div>
   <div class="comment-content">
     <div class="comment">
       <p>
-        {{ comments[comment].content }}
+        {{ comments[commentId].content }}
       </p>
       <div class="right-side">
         <ng-container *ngIf="user && isOwner">
           <button (click)="deleteHandler()" class="delete-btn">Delete</button>
         </ng-container>
         <span class="timestamp">{{
-          comments[comment].createdAt | dateTransform | date : "medium"
+          comments[commentId].createdAt | dateTransform | date : "medium"
         }}</span>
       </div>
     </div>
