@@ -1,41 +1,46 @@
-Angular Project Trance Festivals worldwide 2019
+Armwrestlingbook 2022
 
-Small website containing information about trance music events all over the world.
-Using Angular for front-end, Kinvey as backend; Bootstrap; Toastr.
+Small forum,blog,info web app about armwrestling.
+Using Angular for front-end, Firebase as backend,css files for styling.
 
 Short info and functionalities:
 
 Components:
 
-- Authentication module - contains Login and Register components.
-- Comments module - contains components with logic and forms for add,edit,delete comments;
-- Fests module - contains components for add,edit and delete festivals.
-- Landing module - contains component displayed when a user has been blocked by Admin,
-  and home component with info for the published festivals.
-- Shared module - contains Header with public area info and simple text footer.
-- Users module - contains components with info for every user area - own comments and published info,
-  all users - accessible for admin users; admin functionalities for editing users' collection.
-- Core module - Contains: Kinvey Appkey and Appsecret; Auth guard; Error interceptor and token interceptors;
-  Models folder containing interfaces.
-- Services folder - auth service and handling calls to database using Observables.
+- Authentication: auth module - contains Login, Register and MyTopics components.
+- Contests: contest module - contains AllTopics,Comments,Create,Details,Edit,Search and TopicTemplate components.{
 
-Visitors:
+  - AllTopics - logic and implementation for loading all topics in app;
+  - Create - logic,form and implementation for creation of new topic;
+  - Edit - logic,form and implementation for editing a topic;
+  - Details - shows details of a topic(likes,comments,additional info for the topic) and likes logic and implementation.
+  - Comments - logic,form and implementation for additing and deleting of the comments;
+  - Search - logic,search bar and implementation for the searching;
+  - TopicTemplate - template of the topic;
+    }
 
-Can see most visited festivals on home page.
-On clicking review button, redirect to Login Page.
+- Core: core module - contains Footer ,Header components and guards.
+- Home: home module - contains Home and TopicCard components.
+- Pages: page module - contains PageNotFount component.
+- Shared: shared module - contains date-transform pipe.
+- Others: {
+  - interfaces - Topic interface,
+  - services - authService and topicService
+    }
 
-Registered / Logged-in Users can:
+Visitors can see:
 
-Add and/or edit new post for festivals
-Add and/or edit their comments below each post.
-Like other users' comments.
-Edit their own profile - the e-mail address.
-View published festivals by all users.
+- latest topics on home page.
+- all topics on all topics page.
+- also can searching topics on search page.
+- See additional info for the topic(with hovering on the picture).
+- login/register theirselves.
 
-Admin functionalities:
+Registered / Logged-in Users can also:
 
-Delete all posts
-Delete all comments
-Delete / Edit users
-Block / Unblock selected users.
-Admin role is implemented with Kinvey role Id.
+- Add topics and edit/delete their topics.
+- See all comments; add/delete their comments below each post.
+- Like topic and cancel their likes for the topic.
+- See their own topics(my-topics).
+- Search topics by title.
+- Logout theirselves.
