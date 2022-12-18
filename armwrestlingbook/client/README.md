@@ -1,6 +1,6 @@
 Armwrestlingbook 2022
 
-![Printscreen-Website](https://github.com/hvpetrow/Angular/blob/main/armwrestlingbook/client/src/assets/Printscreen.png)
+![Printscreen-Website](https://github.com/hvpetrow/Angular/blob/main/armwrestlingbook/client/src/assets/Printscreen2.png)
 
 Small forum,blog,info web app about armwrestling.
 Using Angular for front-end, Firebase as backend, css files for styling.
