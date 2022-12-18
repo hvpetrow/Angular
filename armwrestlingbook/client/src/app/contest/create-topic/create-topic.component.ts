@@ -28,7 +28,7 @@ export class CreateTopicComponent implements OnInit {
 
     this.createContestForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
-      photoUrl: new FormControl('', [Validators.required]),
+      photoUrl: new FormControl(''),
       description: new FormControl('', [Validators.required]),
     });
   }
@@ -38,6 +38,7 @@ export class CreateTopicComponent implements OnInit {
 
     const newContest = {
       ...this.createContestForm.value,
+      photoUrl: this.createContestForm.value.photoUrl ? this.createContestForm.value.photoUrl : 'https://t4.ftcdn.net/jpg/03/00/72/73/360_F_300727300_Ka42rZjGY5xqq6cOp89bzagXWx3bVfwg.jpg',
       creator: this.userId,
       comments: [],
       likes: [],

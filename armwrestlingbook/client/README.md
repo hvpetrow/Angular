@@ -1,9 +1,13 @@
 Armwrestlingbook 2022
 
+![Printscreen-Website](https://github.com/hvpetrow/Angular/raw/master/armwrestlingbook/src/assets/Printscreen.png)
+
 Small forum,blog,info web app about armwrestling.
 Using Angular for front-end, Firebase as backend, css files for styling.
 
 Short info and functionalities:
+
+## Architecture
 
 Components:
 
@@ -42,3 +46,12 @@ Registered / Logged-in Users can also:
 - See their own topics(my-topics).
 - Search topics by title.
 - Logout theirselves.
+
+### General Functionality
+
+- Authenticate users via Firebase
+- CRUD Topics
+- CR\*D Comments on topics (no updating implemented)
+- GET and display paginated lists of topics
+- My Topics
+- Search for keywords in Topic titles
