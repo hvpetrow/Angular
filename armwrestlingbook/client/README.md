@@ -52,6 +52,6 @@ Registered / Logged-in Users can also:
 - Authenticate users via Firebase
 - CRUD Topics
 - CR\*D Comments on topics (no updating implemented)
-- GET and display paginated lists of topics
+- GET and display list of topics
 - My Topics
 - Search for keywords in Topic titles
